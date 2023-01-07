@@ -1,0 +1,198 @@
+@import "fonts";
+
+html, body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.header {
+    background-color: #3E2B26;
+    display: flex;
+    padding: 4pt 70pt 4pt 70pt;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__content {
+        color: #ffffff;
+        font-size: 24px;
+    }
+
+    &__logo {
+        color: #D7BD79;
+        font-family: 'Akaya Telivigala';
+        font-size: 24pt;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px;
+    }
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    background-color: #1B1520;
+}
+
+.controls {
+    display: flex;
+    margin: 10px 15px 10px 15px;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+
+    &__border {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        border: 7px solid #D7BD79;
+        border-radius: 45px;
+        width: 350px;
+        height: 60px;
+        padding: 3px 10px 3px 10px;
+    }
+
+    &__img {
+        height: 70px;
+        width: auto;
+    }
+}
+
+input {
+    border: none;
+    height: 80%;
+    background-color: #1B1520;
+    color: white;
+    width: 100%;
+    margin-inline: 10px;
+    font-size: large;
+}
+
+.cart {
+    font-family: Inter;
+    display: flex;
+    color: white;
+    font-size: 40px;
+    align-items: center;
+
+    &__img {
+        padding-inline: 10px;
+        height: 50px;
+        width: auto;
+    }
+}
+
+.new {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    color: white;
+
+    &__tittle {
+        margin: 0px;
+        font-size: xx-large;
+    }
+
+    &__row {
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    height: 370px;
+    width: auto;
+    padding: 15px;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        width: auto;
+
+        &__row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__name {
+            font-size: 25px;
+        }
+
+        &__accessibility {
+            color: chartreuse;
+        }
+    }
+}
+
+.button__buy {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.8s;
+
+    &:hover {
+        background-color: #ffffff; 
+        color: #4CAF50;
+        cursor: pointer;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: #3E2B26;
+    padding-inline: 30px;
+
+    &__copyright {
+        font-size: 24pt;
+        color: #D7BD79;
+    }
+
+    &__about {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: #D7BD79;
+        font-size: 24pt;
+
+        &__social {
+            display: flex;
+            align-items: center;
+            padding-inline: 10px;
+            width: 8%;
+            height: auto;
+
+            &__img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
