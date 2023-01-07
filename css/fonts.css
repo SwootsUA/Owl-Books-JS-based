@@ -1,14 +1,15 @@
 @font-face {
     font-family: Akaya Telivigala;
 	font-display: swap;
-    src: url(../fonts/AkayaTelivigala-Regular.woff);
+    src: url(../fonts/AkayaTelivigala-Regular.ttf);
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
     font-family: Inter;
-	src: url(../fonts/Inter-Regular.woff);
+	src: url(../fonts/Inter-Regular.ttf);
+	src: url(../fonts/Inter-Regular.woff) format(woff);
 	font-display: swap;
 	font-weight: 400;
 	font-style: normal;

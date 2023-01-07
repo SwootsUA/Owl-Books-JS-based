@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-	@@include('html/head.html',{"title":"Owl Books"})
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="icon" href="./img/book.png">
+		<title>Owl Books</title>
+	</head>
 
 	<body>
-		@@include('html/header.html',{})
+		<header class="header">    
+			<div class="header__content">Книги</div>
+			<div class="header__content">Манга</div>
+			
+			<div class="header__logo">
+				<img src="img/logo.png" alt="logo" height="80">
+				<div>Owl Books</div>
+			</div>
+			
+			<div class="header__content">Журнали</div>
+			<div class="header__content">Аксесуари</div>
+		</header>
 		
 		<div class="body">
 			<div class="controls">
@@ -112,7 +130,22 @@
 			</div>
 		</div>
 
-		@@include('html/footer.html',{})
+		<footer class="footer">
+			<div class="footer__copyright">© 2023 “Owl Books”</div>
+			<div class="footer__about">
+				<span class="footer__about__button">Про нас</span>
+				<a class="footer__about__social" href="https://telegram.org">
+					<img class="footer__about__social_img" src="img/teleg.png" alt="teleg">
+				</a>
+				<a class="footer__about__social" href="https://instagram.com">
+					<img class="footer__about__social_img" src="img/insta.png" alt="insta">
+				</a>
+				<a class="footer__about__social" href="https://facebook.com">
+					<img class="footer__about__social__img" src="img/faceb.png" alt="faceb">
+				</a>
+			</div>
+		</footer>
+
 		<script src="js/app.min.js"></script>
 	</body>
 </html>
