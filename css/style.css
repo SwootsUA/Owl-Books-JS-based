@@ -1,13 +1,13 @@
 @font-face {
     font-family: Akaya Telivigala;
 	font-display: swap;
-    src: url(../fonts/akaya-telivigala-regular.ttf);
+    src: url(../fonts/akaya-telivigala.ttf);
 }
 
 @font-face {
     font-family: Inter;
 	font-display: swap;
-	src: url(../fonts/inter-regular.ttf);
+	src: url(../fonts/inter.ttf);
 }
 
 html, body {
