@@ -271,7 +271,6 @@ input {
     }
 
     .burger-menu_items {
-        transition: all 1s ease-in-out;
         position: fixed;
         top: 0px;
         left: -100%;
@@ -286,9 +285,17 @@ input {
     }
 
     .burger-menu-item-container {
+        transition: all 0.8s ease-in-out;
+        position: fixed;
+        top: 0;
+        left: -100%;
         width: 50%;
         background-color: #3E2B26;
         border-end-end-radius: 30px;
+    }
+
+    .burger-menu-item-container.active {
+        left: 0;
     }
 
     .burger-menu__content {
