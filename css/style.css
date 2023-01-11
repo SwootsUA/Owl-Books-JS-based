@@ -31,6 +31,10 @@ img {
     justify-content: space-around;
 }
 
+.header a:hover, a:visited, a:link, a:active { 
+    text-decoration: none; 
+}
+
 .header__content {
     color: #ffffff;
     font-size: 24px;
@@ -144,7 +148,6 @@ input {
 }
 
 .new__row {
-    justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -291,6 +294,7 @@ input {
     }
 
     .burger-menu-item-container {
+        display: block;
         transition: all 0.8s ease-in-out;
         position: fixed;
         top: 0;
@@ -305,9 +309,14 @@ input {
     }
 
     .burger-menu__content {
+        display: block;
         color: white;
         padding: 15px;
         font-size: 24px;;
+    }
+
+    .burger-menu-item-container a:hover, a:visited, a:link, a:active { 
+        text-decoration: none; 
     }
 }
 
