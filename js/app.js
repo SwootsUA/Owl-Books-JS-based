@@ -1,8 +1,12 @@
-import * as flsFunctions from "./modules/functions.js";
+const menuIcon = document.querySelector('.burger-menu_button');
+const navigation = document.querySelector('.burger-menu_items');
 
-flsFunctions.isWebp();
+menuIcon.onclick = function () {
+    menuIcon.classList.toggle('active');
+    navigation.classList.toggle('active');
+}
 
-/*
-import Swiper, { Navigation, Pagination } from 'swiper';
-const swiper = new Swiper();
-*/
+navigation.onclick = function () {
+    menuIcon.classList.remove('active');
+    navigation.classList.remove('active');
+}
