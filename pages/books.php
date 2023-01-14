@@ -20,17 +20,7 @@
 		
 		<div class="body">
 			<div class="controls">
-				<div class="search">
-					<div class="search__border">
-						<input type="search" id="search" placeholder="Пошук...">
-					</div>
-					<img class="search__img" src="../img/search.png" alt="">
-					<img class="search__cross hidden" src="../img/cross.png" alt="">	
-				</div>
-				<div class="cart">
-					<img class="cart__img" src="../img/cart.png" alt="">
-					<div class="cart__text">Кошик</div>
-				</div>
+				<?php include($_SERVER["DOCUMENT_ROOT"]."/include/controls.php");?>
 			</div>
 
 			<div class="new">

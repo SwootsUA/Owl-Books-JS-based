@@ -26,7 +26,7 @@
 				<div class="product-actions">
 					<div class="product-action-remove">Видалити</div>
 					<div class="product-quantity-input-container">
-						<input type="number" min="1" max="9999" value="1" class="product-quantity-input">
+						<input id="noStyleSearch" type="number" min="1" max="9999" value="1" class="product-quantity-input">
 					</div>
 				</div>
 			</li>
@@ -44,7 +44,7 @@
 				<div class="product-actions">
 					<div class="product-action-remove">Видалити</div>
 					<div class="product-quantity-input-container">
-						<input type="number" min="1" max="9999" value="1" class="product-quantity-input">
+						<input id="noStyleSearch" type="number" min="1" max="9999" value="1" class="product-quantity-input">
 					</div>
 				</div>
 			</li>
