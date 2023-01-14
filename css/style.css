@@ -17,6 +17,25 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.make-order-cart {
+    padding-inline: 10px;
+    height: 100%;
+    width: 50%;
+}
+
+.make-order-delivery {
+    padding: 10px;
+    height: 100%;
+    width: 50%;
+}
+
+.make-order-body {
+    display: flex;
+    padding-inline: 10px;
+    flex: 1 1 auto;
+    background-color: #1B1520;
+}
+
 .header {
     background-color: #3E2B26;
     display: flex;
@@ -57,6 +76,7 @@ input::-webkit-inner-spin-button {
 .body {
     display: flex;
     flex-direction: column;
+    padding-inline: 10px;
     flex: 1 1 auto;
     background-color: #1B1520;
 }
@@ -134,15 +154,21 @@ input {
     flex: 1 1 auto;
 }
 
-.cart-popup-container {
+.cart-popup-content {
     padding-inline: 10px;
+    height: 100%;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.cart-popup-container {
     position: fixed;
     display: flex;
     right: -200%;
     flex-direction: column;
     background-color: #1B1520;
     height: 100%;
-    min-width: 280px;
+    min-width: 320px;
     max-width: 600px;
     width: 100%;
     transition: all 0.5s ease-in-out;
@@ -154,7 +180,6 @@ input {
 
 .product-details {
     display: flex;
-    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     color: white;
@@ -177,14 +202,16 @@ input {
 }
 
 .product-quantity-input-container {
-    width: 40%;
+    align-self: center;
+    width: 50%;
 }
 
 .product-quantity-input {
     box-sizing: border-box;
     width: 80;
     transition: 0.3s;
-    border: 2px solid rgba(0, 0, 0, 0);
+    border: 2px solid #3E2B26;
+    border-radius: 2px;
     outline: none;
 }
 
@@ -195,14 +222,21 @@ input {
 .product-actions {
     color: white;
     font-size: 36px;
+    max-width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-self: flex-end;
+}
+
+.about-product {
+    display: flex;
 }
 
 .product-action-quantity {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .cart-header-cross {
@@ -236,8 +270,9 @@ li {
 .cart-product {
     display: flex;
     flex-direction: row;
-    padding: 20px;
+    padding: 15px;
     align-items: stretch;
+    justify-content: space-between;
 }
 
 .product-image-container {
@@ -562,5 +597,15 @@ li {
 
     .search__cross.hidden {
         display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .product-name {
+        font-size: 24px;
+    }
+
+    .cart-product {
+        padding: 15px 0;
     }
 }
