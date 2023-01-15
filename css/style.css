@@ -5,6 +5,16 @@ html, body {
     min-height: 100vh;
 }
 
+input, select {
+    border: none;
+    height: 80%;
+    background-color: #1B1520;
+    color: white;
+    width: 100%;
+    margin-inline: 10px;
+    font-size: large;
+}
+
 img {
     max-width: 100%;
     max-height: 100%;
@@ -29,6 +39,7 @@ input[type="search"] {
 }
 
 .make-order-delivery {
+    display: flex;
     padding: 10px;
     height: 100%;
     width: 50%;
@@ -218,6 +229,29 @@ input[type="search"] {
 
 .product-quantity-input:focus {
     border: 2px solid #D7BD79 !important;
+}
+
+.order-input {
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    border: 2px solid #3E2B26 !important; 
+    border-radius: 2px;
+    outline: none;
+}
+
+.order-input:focus {
+    border: 2px solid #D7BD79 !important;
+}
+
+.contacts-text {
+    width: 200%;
+}
+
+.contacts-text-content {
+    height: 26px;
+    margin-bottom: 20px;
 }
 
 .product-actions {
