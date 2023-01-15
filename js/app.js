@@ -4,7 +4,7 @@ const cartPopUp = document.querySelector('.cart-popup');
 const searchIcon = document.querySelector('.search__img');
 const searchCross = document.querySelector('.search__cross');
 const cartBackground = document.querySelector('.background');
-const searchBorder = document.querySelector('.search__border');
+const searchInput = document.querySelector('.search__input');
 const menuIcon = document.querySelector('.burger-menu_button');
 const cartCross = document.querySelector('.cart-header-cross');
 const navigation = document.querySelector('.burger-menu_items');
@@ -59,12 +59,12 @@ searchIcon.onclick = function () {
     cartImg.classList.toggle('hidden');
     searchIcon.classList.toggle('hidden');
     searchCross.classList.toggle('hidden');
-    searchBorder.classList.toggle('active');
+    searchInput.classList.toggle('active');
 }
 
 searchCross.onclick = function () {
     searchIcon.classList.toggle('hidden');
     searchCross.classList.toggle('hidden');
-    searchBorder.classList.toggle('active');
+    searchInput.classList.toggle('active');
     setTimeout(revealCart, 350);
 }
