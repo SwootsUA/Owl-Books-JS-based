@@ -18,7 +18,7 @@
 						<img class="product-image" src="../img/items/manga.jpg" alt="alt">
 					</div>
 					<div class="product-details">
-						<div class="product-name">Манга</div>
+						<div class="product-name">Манга fewrfwewefw</div>
 						<div class="product-author">Кен Вакуі</div>
 						<div class="product-price">350 грн</div>
 					</div>

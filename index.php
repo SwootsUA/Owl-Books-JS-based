@@ -120,6 +120,6 @@
 			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/footer.php");?>
 		</footer>
 		
-		<script src="js/app.js"></script>
+		<script type="module" src="js/app.js"></script>
 	</body>
 </html>

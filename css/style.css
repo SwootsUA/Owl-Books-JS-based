@@ -5,7 +5,7 @@ html, body {
     min-height: 100vh;
 }
 
-input, select {
+input, select, textarea {
     border: none;
     height: 80%;
     background-color: #1B1520;
@@ -26,20 +26,20 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type="search"] {
+input[type="search"], textarea {
     -moz-appearance: none;/* older firefox */
     -webkit-appearance: none; /* safari, chrome, edge and ie mobile */
     appearance: none; /* rest */
 }
 
 .make-order-cart {
-    padding-inline: 10px;
     height: 100%;
     width: 50%;
 }
 
 .make-order-delivery {
     display: flex;
+    border-left: 3px solid #D7BD79;
     padding: 10px;
     height: 100%;
     width: 50%;
@@ -47,7 +47,15 @@ input[type="search"] {
 
 .make-order-body {
     display: flex;
-    padding-inline: 10px;
+    flex-direction: column;
+    flex: 1 1 auto;
+    background-color: #1B1520;
+}
+
+.order-container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
     flex: 1 1 auto;
     background-color: #1B1520;
 }
@@ -174,6 +182,11 @@ input[type="search"] {
     max-width: 600px;
 }
 
+.make-order-body .make-order-cart .cart-popup-content {
+    height: 100%;
+    max-width: 100%;
+}
+
 .cart-popup-container {
     position: fixed;
     display: flex;
@@ -201,11 +214,42 @@ input[type="search"] {
 }
 
 .product-name {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 36px;
 }
 
 .product-author {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: lightgray;
+}
+
+@media (max-width: 360px) {
+    .product-details {
+        max-width: calc(100% - 10px);
+        width: calc(100% - 10px);
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .product-name {
+        max-width: calc(100% - 10px);
+    }
+    
+    .product-author {
+        max-width: calc(100% - 10px);
+    }
+
+    .product-price {
+        max-width: calc(100% - 10px);
+        white-space: nowrap;
+        overflow: hidden;
+    }
 }
 
 .product-action-remove{
@@ -232,26 +276,75 @@ input[type="search"] {
 }
 
 .order-input {
+    width: 95%;
     height: auto;
     box-sizing: border-box;
     margin-bottom: 20px;
+    padding-inline: 20px;
     transition: 0.3s;
     border: 2px solid #3E2B26 !important; 
-    border-radius: 2px;
+    border-radius: 45px;
     outline: none;
 }
+
+textarea.order-input {
+    margin-right: 0 !important;
+    width: 95% !important;
+}
+
+
 
 .order-input:focus {
     border: 2px solid #D7BD79 !important;
 }
 
+.order-summary-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    width: calc(100%-40px);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.8s;
+    margin: 20px;
+}
+
+.order-summary-button:hover {
+    background-color: #ffffff; 
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.input-description {
+    display: flex;
+    width: 100% !important;
+    padding-top: 5px;
+    border-radius: 15px;
+    height: 105px;
+    transition: none;
+    min-height: 35px;
+    max-height: 300px;
+}
+
 .contacts-text {
-    width: 200%;
+    width: 100%;
 }
 
 .contacts-text-content {
-    height: 26px;
+    color: white;
+    font-size: large;
     margin-bottom: 20px;
+    height: 26px;
+}
+
+@media (max-width: 868px) {
+    .contacts-text-content {
+        font-size: small;
+    }
 }
 
 .product-actions {
@@ -471,6 +564,12 @@ li {
     height: auto;
 }
 
+@media (max-width: 1042px) {
+    .input-nova-post {
+        margin-bottom: 40px;
+    }
+}
+
 @media (max-width: 880px) and (min-width: 801) {
     .footer__copyright {
         font-size: 18pt;
@@ -481,9 +580,36 @@ li {
 }
 
 @media (max-width: 800px) {
+    .input-nova-post {
+        margin-bottom: 20px;
+    }
+
+    .make-order-body {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .make-order-cart {
+        width: 100%;
+    }
+
+    .make-order-delivery {
+        border-left: 0px none transparent;
+        border-top: 3px solid #D7BD79;
+        width: calc(100% - 20px);
+    }
+
+    .order-container {
+        flex-direction: column;
+    }
+
     .footer__copyright {
         font-size: 16pt;
     }
+
+    .contacts-text {
+        display: none;
+    }    
 
     .footer__about {
         font-size: 16pt;
@@ -635,7 +761,7 @@ li {
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
     .product-name {
         font-size: 24px;
     }
