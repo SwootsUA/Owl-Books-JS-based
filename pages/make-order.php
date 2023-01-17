@@ -14,6 +14,15 @@
 			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/header.php");?>
 		</header>
 		
+        <div class="popup-order-succeed">
+            <div class="popup-order-succeed__body">
+                <div class="popup-order-succeed__text">
+                    Замовлення успішне!<p>Деталі доставки будуть надіслані вам на пошту та у телеграм
+                </div>
+                <button class="order-summary-button">Закрити діалогове вікно</button>
+            </div>
+        </div>
+
 		<div class="make-order-body">
             <div class="order-container">
                 <div class="make-order-cart">
@@ -79,13 +88,13 @@
                 </div>
                 <div class="make-order-delivery">
                     <div class="contacts-text">
-                        <div class="contacts-text-content">Ім'я</div>
-                        <div class="contacts-text-content">Призвище</div>
-                        <div class="contacts-text-content">Телефон</div>
-                        <div class="contacts-text-content">Електронна пошта</div>
-                        <div class="contacts-text-content">Область</div>
-                        <div class="contacts-text-content">Місто</div>
-                        <div class="contacts-text-content input-nova-post">Відділення Нової Пошти</div>
+                        <div class="contacts-text-content">Ім'я *</div>
+                        <div class="contacts-text-content">Прізвище *</div>
+                        <div class="contacts-text-content">Телефон *</div>
+                        <div class="contacts-text-content">Електронна пошта *</div>
+                        <div class="contacts-text-content">Область *</div>
+                        <div class="contacts-text-content">Місто *</div>
+                        <div class="contacts-text-content input-nova-post">Відділення Нової Пошти *</div>
                         <div class="contacts-text-content">Коментар</div>
                     </div>
                     <div class="contacts-input">
@@ -94,7 +103,7 @@
                         <input type="number" class="order-input phone" placeholder="Телефон">
                         <input type="text" class="order-input email" placeholder="Електронна пошта">
                         <select class="order-input oblast">
-                            <option disabled="disabled" selected="selected"> --- Виберіть --- </option>
+                            <option value="0" disabled="disabled" selected="selected"> --- Виберіть --- </option>
                             <option value="1">Івано-Франківська область</option>
                             <option value="2">Вінницька область</option>
                             <option value="3">Волинська область</option>
@@ -122,11 +131,11 @@
                         </select>
                         <input type="text" class="order-input input-city" placeholder="Місто">
                         <input type="text" class="order-input input-nova-post" placeholder="Відділення Нової Пошти">
-                        <textarea type="text" class="order-input input-description" placeholder="Коментар"></textarea>
+                        <textarea type="text" class="order-input input-description not_req" placeholder="Коментар"></textarea>
                     </div>
                 </div>
             </div>
-            <button class="order-summary-button">Оформити замовлення</button>
+            <button id="make-order" class="order-summary-button">Оформити замовлення</button>
 		</div>
 
 		<footer class="footer">
