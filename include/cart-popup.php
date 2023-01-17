@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="cart-header">
-			<div class="cart-popup-quantity">2 шт.</div>
+			<div class="cart-popup-quantity"></div>
 			<div class="cart-popup-clear"> Видалити все </div>
 		</div>
 		<ul class="cart-products">
@@ -55,9 +55,7 @@
 					<div class="cart-summary-title">
 						Всього
 					</div>
-					<div class="cart-summary-price">
-						550 грн
-					</div>
+					<div class="cart-summary-price"></div>
 				</div>
 				<button type="button" onclick="window.location='../pages/make-order.php';" class="cart-summary-button">
 					Перейти до оформлення замовлення

@@ -19,14 +19,11 @@ function revealCart() {
 }
 
 if (document.querySelector('.cart-summary-price')) {
-    cart.addPriceUpdater();
+    const cart_obj = new cart.updateCart();
+    cart_obj.updateCart();
 }
 
 if (document.getElementById('make-order')) inputCheck.inputCheck();
-
-const cart_obj = new cart.updateCart();
-
-cart_obj.updateCart();
 
 if (document.querySelector('.burger-menu_items')) {
     menuIcon.onclick = function () {

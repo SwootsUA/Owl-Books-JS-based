@@ -298,6 +298,7 @@ input[type="search"], textarea {
     color: rgba(255, 255, 255, 0.7);
     font-size: 24px;
     align-self: flex-end;
+    cursor: pointer;
 }
 
  .product-quantity-input-container {
@@ -422,6 +423,7 @@ textarea.order-input {
 }
 
 .cart-products {
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     height: calc(100% - 225px);

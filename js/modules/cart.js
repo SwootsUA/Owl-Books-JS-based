@@ -1,9 +1,10 @@
 export class updateCart {
-    cartProduct = document.querySelectorAll('.cart-product');
-    cartQuantity = document.querySelector('.cart-popup-quantity');
-
     updateCart() {
-        // TODo
+        // TODO
+        const allCartProduct = document.querySelectorAll('.cart-product');
+        const cartQuantity = document.querySelector('.cart-popup-quantity');
+        cartQuantity.textContent = allCartProduct.length + " шт.";
+        addPriceUpdater();
     }
 
     clearCart() {
@@ -25,6 +26,7 @@ export class updateCart {
 export function addPriceUpdater() {
     const summaryPrice = document.querySelector('.cart-summary-price');
     const produtsQuantitys = document.querySelectorAll('.product-quantity-input');
+    updatePrice();
 
     for (const input of produtsQuantitys) {
         input.addEventListener('change', updatePrice)
