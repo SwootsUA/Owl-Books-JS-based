@@ -30,9 +30,9 @@
 				<div class="new__row">
 					<div class="item">
 						<div class="item__content">
-							<img src="../img/items/manga.jpg" alt="">
+							<img src="../img/items/tokiyski-mesnyky-tom-1.jpg">
 							<div class="item__content__name">
-								Манга 1
+								Манга
 							</div>
 							<div class="item__content__row">
 								<div class="item__content__collum">
@@ -49,69 +49,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/manga.jpg" alt="">
-							<div class="item__content__name">
-								Манга 2
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										300грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/manga.jpg" alt="">
-							<div class="item__content__name">
-								Манга 3
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										300грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/manga.jpg" alt="">
-							<div class="item__content__name">
-								Манга 4
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										350грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>					
 				</div>
 			</div>
 		</div>

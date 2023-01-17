@@ -30,17 +30,14 @@
 				<div class="new__row">
 					<div class="item">
 						<div class="item__content">
-							<img src="../img/items/item.png" alt="book">
+							<img src="../img/items/astrophysics-for-people-in-a-hurry.png">
 							<div class="item__content__name">
-								Книга 1
+								Книга
 							</div>
 							<div class="item__content__row">
 								<div class="item__content__collum">
 									<div class="item__content__price">
 										300грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
 									</div>
 								</div>
 								<button class="button__buy">
@@ -49,69 +46,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/item.png" alt="book">
-							<div class="item__content__name">
-								Книга 2
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										300грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/item.png" alt="book">
-							<div class="item__content__name">
-								Книга 3
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										300грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/item.png" alt="book">
-							<div class="item__content__name">
-								Книга 4
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										300грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>					
 				</div>
 			</div>
 		</div>

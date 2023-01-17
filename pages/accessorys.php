@@ -30,17 +30,14 @@
 				<div class="new__row">
 					<div class="item">
 						<div class="item__content">
-							<img src="../img/items/accessory.jpg" alt="">
+							<img src="../img/items/bookmark-for-books-just-reading.jpg">
 							<div class="item__content__name">
-								Аксесуар 1
+								Аксесуар
 							</div>
 							<div class="item__content__row">
 								<div class="item__content__collum">
 									<div class="item__content__price">
 										100грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
 									</div>
 								</div>
 								<button class="button__buy">
@@ -48,70 +45,7 @@
 								</button>
 							</div>
 						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/accessory.jpg" alt="">
-							<div class="item__content__name">
-								Аксесуар 2
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										100грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/accessory.jpg" alt="">
-							<div class="item__content__name">
-								Аксесуар 3
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										100грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/accessory.jpg" alt="">
-							<div class="item__content__name">
-								Аксесуар 4
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										100грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>				
+					</div>			
 				</div>
 			</div>
 		</div>

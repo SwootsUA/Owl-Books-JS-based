@@ -15,7 +15,7 @@
 			<li class="cart-product">
 				<div class="about-product">
 					<div class="product-image-container">
-						<img class="product-image" src="../img/items/manga.jpg" alt="alt">
+						<img class="product-image" src="../img/items/tokiyski-mesnyky-tom-1.jpg" alt="alt">
 					</div>
 					<div class="product-details">
 						<div class="product-name">Манга fewrfwewefw</div>
@@ -33,7 +33,7 @@
 			<li class="cart-product">
 				<div class="about-product">
 					<div class="product-image-container">
-						<img class="product-image" src="../img/items/magazine.jpg" alt="alt">
+						<img class="product-image" src="../img/items/forbes-ukraine-5-2022.jpg" alt="alt">
 					</div>
 					<div class="product-details">
 						<div class="product-name">Журнал</div>

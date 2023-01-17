@@ -30,17 +30,14 @@
 				<div class="new__row">
 					<div class="item">
 						<div class="item__content">
-							<img src="../img/items/magazine.jpg" alt="">
+							<img src="../img/items/forbes-ukraine-5-2022.jpg">
 							<div class="item__content__name">
-								Журнал 1
+								Журнал
 							</div>
 							<div class="item__content__row">
 								<div class="item__content__collum">
 									<div class="item__content__price">
 										200грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
 									</div>
 								</div>
 								<button class="button__buy">
@@ -48,70 +45,7 @@
 								</button>
 							</div>
 						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/magazine.jpg" alt="">
-							<div class="item__content__name">
-								Журнал 2
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										200грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/magazine.jpg" alt="">
-							<div class="item__content__name">
-								Журнал 3
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										200грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/magazine.jpg" alt="">
-							<div class="item__content__name">
-								Журнал 4
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										200грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>					
+					</div>				
 				</div>
 			</div>
 		</div>
