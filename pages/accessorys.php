@@ -28,24 +28,7 @@
 					Аксесуари
 				</h2>
 				<div class="new__row">
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/bookmark-for-books-just-reading.jpg">
-							<div class="item__content__name">
-								Аксесуар
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										100грн
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>			
+					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/data-base.php");?>
 				</div>
 			</div>
 		</div>

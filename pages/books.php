@@ -28,24 +28,7 @@
 					Книги
 				</h2>
 				<div class="new__row">
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/astrophysics-for-people-in-a-hurry.png">
-							<div class="item__content__name">
-								Книга
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										300грн
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
+					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/data-base.php");?>
 				</div>
 			</div>
 		</div>

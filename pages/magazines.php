@@ -28,24 +28,7 @@
 					Журнали
 				</h2>
 				<div class="new__row">
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/forbes-ukraine-5-2022.jpg">
-							<div class="item__content__name">
-								Журнал
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										200грн
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>				
+					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/data-base.php");?>		
 				</div>
 			</div>
 		</div>

@@ -28,27 +28,7 @@
 					Манга
 				</h2>
 				<div class="new__row">
-					<div class="item">
-						<div class="item__content">
-							<img src="../img/items/tokiyski-mesnyky-tom-1.jpg">
-							<div class="item__content__name">
-								Манга
-							</div>
-							<div class="item__content__row">
-								<div class="item__content__collum">
-									<div class="item__content__price">
-										350грн
-									</div>
-									<div class="item__content__accessibility">
-										В наявності
-									</div>
-								</div>
-								<button class="button__buy">
-									Купити
-								</button>
-							</div>
-						</div>
-					</div>
+					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/data-base.php");?>
 				</div>
 			</div>
 		</div>

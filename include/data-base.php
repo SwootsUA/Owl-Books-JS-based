@@ -8,13 +8,29 @@
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
-    
-    // TODO: зробити щоб бд вибирала кортежі у залежності від відкритої сторінки
 
-    $sql = "SELECT items._id, items.image_name, items.name, items.price, items.type, items.made_by, items.description, types.type FROM items JOIN types on items.type = types._id";
+    $searchType = "";
+    $currentFileName = basename($_SERVER['PHP_SELF']);
+    if ($currentFileName == 'books.php') {
+      $searchType = "WHERE types.type = \"book\"";
+    }
+    if ($currentFileName == 'mangas.php') {
+      $searchType = "WHERE types.type = \"manga\"";
+    }
+    if ($currentFileName == 'magazines.php') {
+      $searchType = "WHERE types.type = \"magazine\"";
+    }
+    if ($currentFileName == 'accessorys.php') {
+      $searchType = "WHERE types.type = \"accessory\"";
+    }
+    if ($currentFileName == 'index.php') {
+      $searchType = "";
+    }
+    
+    $sql = "SELECT items._id, items.image_name, items.name, items.price, items.type, items.made_by, items.description, types.type FROM items JOIN types on items.type = types._id " . $searchType;
+    $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
     
-    $result = mysqli_query($conn, $sql);
     for($i = 0; $i < mysqli_num_rows($result); $i++) {
         $f = mysqli_fetch_array($result);
         echo 
@@ -39,4 +55,5 @@
 					</div>
         ";
     }
+
 ?>
