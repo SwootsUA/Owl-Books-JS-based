@@ -28,7 +28,7 @@
 					Книги
 				</h2>
 				<div class="new__row">
-					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/data-base.php");?>
+					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-page.php");?>
 				</div>
 			</div>
 		</div>

@@ -248,6 +248,7 @@ input[type="search"], textarea {
 
 .product-details {
     display: flex;
+    max-width: 360px;
     flex-direction: column;
     justify-content: space-between;
     color: white;
@@ -403,6 +404,7 @@ textarea.order-input {
 }
 
 .about-product {
+    max-width: 450px;
     display: flex;
 }
 

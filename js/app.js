@@ -14,16 +14,13 @@ const navigation = document.querySelector('.burger-menu_items');
 const cartContainer = document.querySelector('.cart-popup-container');
 const menuItems = document.querySelector('.burger-menu-item-container');
 
-function revealCart() {
-    cartImg.classList.toggle('hidden');
-}
-
 if (document.querySelector('.cart-summary-price')) {
-    const cart_obj = new cart.updateCart();
-    cart_obj.updateCart();
+    new cart.constructor();
 }
 
-if (document.getElementById('make-order')) inputCheck.inputCheck();
+if (document.getElementById('make-order')) {
+    inputCheck.inputCheck();
+}  
 
 if (document.querySelector('.burger-menu_items')) {
     menuIcon.onclick = function () {
@@ -82,5 +79,9 @@ if (document.querySelector('.search__img')) {
         searchCross.classList.toggle('hidden');
         searchInput.classList.toggle('active');
         setTimeout(revealCart, 350);
+    }
+
+    function revealCart() {
+        cartImg.classList.toggle('hidden');
     }
 }
