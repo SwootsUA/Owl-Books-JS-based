@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Owl Books</title>
+		<title>
+			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-item-tittle.php");?>
+		</title>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.php");?>
 	</head>
     <body>
