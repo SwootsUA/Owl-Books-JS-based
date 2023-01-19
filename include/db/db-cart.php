@@ -11,7 +11,7 @@
 
     $cartIds = $_REQUEST["q"];
 
-    $sql = "SELECT items._id, image_name, name, price, type_id, made_by, description, type FROM items JOIN types on type_id = types._id WHERE items._id IN (" . $cartIds . ")";
+    $sql = "SELECT items._id, image_name, name, price, made_by FROM items WHERE items._id IN (" . $cartIds . ")";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
@@ -33,7 +33,7 @@
             <div class=\"product-actions\">
                 <div class=\"product-action-remove\">Видалити</div>
                 <div class=\"product-quantity-input-container\">
-                    <input type=\"number\" min=\"1\" max=\"9999\" value=\"1\" class=\"product-quantity-input\">
+                    <input type=\"number\" min=\"1\" max=\"100\" value=\"1\" class=\"product-quantity-input\">
                 </div>
             </div>
         </li>

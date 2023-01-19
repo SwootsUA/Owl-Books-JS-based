@@ -13,14 +13,24 @@ const cartCross = document.querySelector('.cart-header-cross');
 const navigation = document.querySelector('.burger-menu_items');
 const cartContainer = document.querySelector('.cart-popup-container');
 const menuItems = document.querySelector('.burger-menu-item-container');
+const itemsHref = document.querySelectorAll('.item__href');
 
 if (document.querySelector('.cart-summary-price')) {
-    new cart.constructor();
+    cart.constructor();
 }
 
 if (document.getElementById('make-order')) {
     inputCheck.inputCheck();
 }  
+
+if (document.querySelector('.item__href')) {
+    for(const itemHref of itemsHref) {
+        itemHref.onclick = function () {
+            var id = itemHref.querySelector('.item__content__name').id;
+            window.location = ('../pages/item.php?item-id=' + id);
+        }
+    }
+}
 
 if (document.querySelector('.burger-menu_items')) {
     menuIcon.onclick = function () {
