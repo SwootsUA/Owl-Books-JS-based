@@ -33,14 +33,14 @@ input[type="search"], textarea {
 
 .make-order-cart {
     border-right: 3px solid #D7BD79;
-    height: 100%;
+    padding: 10px;
     width: 50%;
 }
 
 .make-order-delivery {
     display: flex;
     padding: 10px;
-    height: 100%;
+    height: calc(100% - 20px);
     width: 50%;
 }
 
@@ -82,6 +82,10 @@ input[type="search"], textarea {
     font-size: 25px !important;
 }
 
+.order-summary-button#make-order {
+    margin-block: 10px;
+}
+
 .popup-order-succeed__text {
     text-align: center;
     font-size: 30px;
@@ -101,6 +105,7 @@ input[type="search"], textarea {
     flex-direction: row;
     margin: 10px 0;
     flex: 1 1 auto;
+    height: 0px;
     background-color: #1B1520;
 }
 
@@ -296,6 +301,10 @@ input[type="search"], textarea {
     max-width: 100%;
 }
 
+.make-order-cart {
+    height: calc(100% - 20px) !important;
+}
+
 .cart-popup-container {
     position: fixed;
     display: flex;
@@ -434,7 +443,7 @@ textarea.order-input {
     cursor: pointer;
 }
 
-.input-description {
+.description {
     display: flex;
     width: 100% !important;
     padding-top: 5px;
@@ -495,11 +504,14 @@ textarea.order-input {
 
 .cart-products {
     width: 100%;
-    overflow-y: auto;
     display: flex;
     overflow-y: auto;
     flex-direction: column;
     height: calc(100% - 225px);
+}
+
+.make-order-cart .cart-popup-content .cart-products {
+    height: 100%;
 }
 
 ul, li {
@@ -701,7 +713,7 @@ ul, li {
 }
 
 @media (max-width: 1042px) {
-    .input-nova-post {
+    .np-margin {
         margin-bottom: 40px;
     }
 }
@@ -716,7 +728,7 @@ ul, li {
 }
 
 @media (max-width: 800px) {
-    .input-nova-post {
+    .np-margin {
         margin-bottom: 20px;
     }
 

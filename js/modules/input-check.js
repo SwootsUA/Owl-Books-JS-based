@@ -27,7 +27,36 @@ export function inputCheck() {
         } 
 
         if (!containsError) {
-            activatePopUp();
+            var storedData;
+            var xmlhttp = new XMLHttpRequest();
+            var storedProductIDs;
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    activatePopUp();
+                }
+            }
+
+            try {
+                storedProductIDs = JSON.parse(localStorage.getItem("productIDs"));
+            } catch (error) {
+                return;
+            }
+
+            storedData = 
+            "name=\"" + document.querySelector('.name').value +
+            "\"&surname=\"" + document.querySelector('.surname').value +
+            "\"&phone=\"" + document.querySelector('.phone').value +
+            "\"&email=\"" + document.querySelector('.email').value +
+            "\"&oblast=" + document.querySelector('.oblast').value +
+            "&city=\"" + document.querySelector('.city').value +
+            "\"&novaPost=\"" + document.getElementById('nova-post').value +
+            "\"&description=\"" + document.querySelector('.description').value +
+            "\"&products=\"" + storedProductIDs + '"';
+
+            xmlhttp.open("GET", "../include/db/db-add-order.php?" + storedData, false);
+            xmlhttp.send();
+
             cart.clearCart();
         }
     }

@@ -56,7 +56,7 @@ function updateCart() {
     try {
         storedProductIDs = JSON.parse(localStorage.getItem("productIDs"));
     } catch (error) {}
-
+    
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             if(document.getElementById("ul-body")){
@@ -72,6 +72,7 @@ function updateCart() {
             cartPopUp.insertBefore(node, cartSummary);
         }
     }
+
     xmlhttp.open("GET", "../include/db/db-cart.php?q=" + storedProductIDs, false);
     xmlhttp.send();
 
@@ -93,7 +94,6 @@ function updateCart() {
             window.location = ('../pages/item.php?item-id=' + id);
         }
     }
-
     addPriceUpdater();    
 }
 

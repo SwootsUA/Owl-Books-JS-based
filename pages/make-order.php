@@ -23,7 +23,7 @@
             </div>
         </div>
 
-		<div class="make-order-body">
+		<div class="make-order-body" method="post">
             <div class="order-container">
                 <div class="make-order-cart">
                     <div class="cart-popup-content">
@@ -54,15 +54,15 @@
                         <div class="contacts-text-content">Електронна пошта *</div>
                         <div class="contacts-text-content">Область *</div>
                         <div class="contacts-text-content">Місто *</div>
-                        <div class="contacts-text-content input-nova-post">Відділення Нової Пошти *</div>
+                        <div class="contacts-text-content np-margin">Відділення Нової Пошти *</div>
                         <div class="contacts-text-content">Коментар</div>
                     </div>
                     <div class="contacts-input">
-                        <input type="text" class="order-input name" placeholder="Ім'я">
-                        <input type="text" class="order-input surname" placeholder="Призвище">
-                        <input type="number" class="order-input phone" placeholder="Телефон">
-                        <input type="text" class="order-input email" placeholder="Електронна пошта">
-                        <select class="order-input oblast">
+                        <input type="text" class="order-input name" placeholder="Ім'я" required>
+                        <input type="text" class="order-input surname" placeholder="Призвище" required>
+                        <input type="number" class="order-input phone" placeholder="Телефон" required>
+                        <input type="text" class="order-input email" placeholder="Електронна пошта" required>
+                        <select class="order-input oblast" required>
                             <option value="0" disabled="disabled" selected="selected"> --- Виберіть --- </option>
                             <option value="1">Івано-Франківська область</option>
                             <option value="2">Вінницька область</option>
@@ -89,14 +89,14 @@
                             <option value="23">Чернівецька область</option>
                             <option value="24">Чернігівська область</option>
                         </select>
-                        <input type="text" class="order-input input-city" placeholder="Місто">
-                        <input type="text" class="order-input input-nova-post" placeholder="Відділення Нової Пошти">
-                        <textarea type="text" class="order-input input-description not_req" placeholder="Коментар"></textarea>
+                        <input type="text" class="order-input city" placeholder="Місто" required>
+                        <input type="text" class="order-input np-margin nova-post" id="nova-post" placeholder="Відділення Нової Пошти" required>
+                        <textarea type="text" class="order-input description not_req" placeholder="Коментар"></textarea>
                     </div>
                 </div>
             </div>
-            <button id="make-order" class="order-summary-button">Оформити замовлення</button>
-		</div>
+            <button type="submit" id="make-order" class="order-summary-button">Оформити замовлення</button>
+        </div>
 
 		<footer class="footer">
 			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/footer.php");?>
