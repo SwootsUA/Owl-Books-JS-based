@@ -2,25 +2,25 @@
 <html lang="en">
 	<head>
 		<title>Книги</title>
-		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.php");?>
+		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
 	</head>
 
 	<body>
 		<nav class="burger-menu_items">
-			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/burger-menu.php");?>
+			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/burger-menu.html");?>
 		</nav>
 
 		<div class="cart-popup">
-			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/cart-popup.php");?>
+			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/cart-popup.html");?>
 		</div>
 
 		<header class="header">
-			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/header.php");?>
+			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/header.html");?>
 		</header>
 		
 		<div class="body">
 			<div class="controls">
-				<?php include($_SERVER["DOCUMENT_ROOT"]."/include/controls.php");?>
+				<?php include($_SERVER["DOCUMENT_ROOT"]."/include/controls.html");?>
 			</div>
 
 			<div class="new">
@@ -34,7 +34,7 @@
 		</div>
 
 		<footer class="footer">
-			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/footer.php");?>
+			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/footer.html");?>
 		</footer>
 		
 		<script type="module" src="../js/app.js"></script>
