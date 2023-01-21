@@ -9,7 +9,8 @@
       die("Connection failed: " . mysqli_connect_error());
     }
 
-    $cartIds = $_REQUEST["q"];
+    $cartIds = $_REQUEST["ids"];
+    $cartQuantitys = explode(',', $_REQUEST["quantitys"]);
 
     $sql = "SELECT items._id, image_name, name, price, made_by FROM items WHERE items._id IN (" . $cartIds . ")";
     $result = mysqli_query($conn, $sql);
@@ -33,7 +34,7 @@
             <div class=\"product-actions\">
                 <div class=\"product-action-remove\">Видалити</div>
                 <div class=\"product-quantity-input-container\">
-                    <input type=\"number\" min=\"1\" max=\"100\" value=\"1\" class=\"product-quantity-input\">
+                    <input type=\"number\" min=\"1\" max=\"100\" value=\"".$cartQuantitys[$i]."\" class=\"product-quantity-input\">
                 </div>
             </div>
         </li>

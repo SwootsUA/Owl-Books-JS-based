@@ -1,4 +1,4 @@
-import * as cart from "./cart.js";
+import * as cartModule from "./cart.js";
 
 export function inputCheck() {
     let orderButton = document.getElementById('make-order');
@@ -27,20 +27,14 @@ export function inputCheck() {
         } 
 
         if (!containsError) {
-            var storedData;
-            var xmlhttp = new XMLHttpRequest();
-            var storedProductIDs;
+            let storedData;
+            let xmlhttp = new XMLHttpRequest();
+            let cart = JSON.stringify(JSON.parse(localStorage.getItem("cart"))).replace(/["]/g, '');
 
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     activatePopUp();
                 }
-            }
-
-            try {
-                storedProductIDs = JSON.parse(localStorage.getItem("productIDs"));
-            } catch (error) {
-                return;
             }
 
             storedData = 
@@ -52,12 +46,12 @@ export function inputCheck() {
             "&city=\"" + document.querySelector('.city').value +
             "\"&novaPost=\"" + document.getElementById('nova-post').value +
             "\"&description=\"" + document.querySelector('.description').value +
-            "\"&products=\"" + storedProductIDs + '"';
+            "\"&products=\"" + cart + '"';
 
             xmlhttp.open("GET", "../include/db/db-add-order.php?" + storedData, false);
             xmlhttp.send();
 
-            cart.clearCart();
+            cartModule.clearCart();
         }
     }
 

@@ -617,7 +617,7 @@ ul, li {
 .item_image {
     object-fit: contain;
     object-position: center;
-    max-height: 330px;
+    height: 330px;
 }
 
 .item__content {
