@@ -23,7 +23,7 @@
             </div>
         </div>
 
-		<div class="make-order-body" method="post">
+		<div class="make-order-body">
             <div class="order-container">
                 <div class="make-order-cart">
                     <div class="cart-popup-content">

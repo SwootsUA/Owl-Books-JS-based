@@ -34,7 +34,9 @@
             <div class=\"product-actions\">
                 <div class=\"product-action-remove\">Видалити</div>
                 <div class=\"product-quantity-input-container\">
-                    <input type=\"number\" min=\"1\" max=\"100\" value=\"".$cartQuantitys[$i]."\" class=\"product-quantity-input\">
+                    <img src=\"../img/minus.png\" class=\"quantity-button minus\">
+                    <input type=\"number\" min=\"1\" max=\"100\" class=\"product-quantity-input\">
+                    <img src=\"../img/plus.png\" class=\"quantity-button plus\">
                 </div>
             </div>
         </li>

@@ -59,7 +59,6 @@ function updateCart() {
             if(cart.length > 0){
                 node.innerHTML = this.responseText;
             }
-            
             cartPopUp.insertBefore(node, cartSummary);
         }
     }
@@ -79,6 +78,13 @@ function updateCart() {
     xmlhttp.send();
     
     const allCartProduct = document.querySelectorAll('.cart-product');
+    for (const product of allCartProduct) {
+        let second_cart = JSON.parse(localStorage.getItem('cart'));
+        let itemId = parseInt(product.querySelector('.product-name').id);
+        let itemQuantity = second_cart.find(element => element.id == itemId);
+        product.querySelector('.product-quantity-input').setAttribute('value', itemQuantity.quantity);
+    }
+
     const cartQuantity = document.querySelector('.cart-popup-quantity');
     cartQuantity.textContent = allCartProduct.length + " шт.";
     if (allCartProduct.length > 0) {
@@ -139,8 +145,9 @@ function addButtonInit() {
 function addPriceUpdater() {
     const summaryPrice = document.querySelector('.cart-summary-price');
     const produtsQuantitys = document.querySelectorAll('.product-quantity-input');
+    plus_minusButtonsInit();
     updatePrice();
-    
+
     var itemPagequantity = document.querySelector('.item_page-product-quantity-input');
     if (itemPagequantity) {
         itemPagequantity.onchange = function () {
@@ -165,14 +172,48 @@ function addPriceUpdater() {
         summaryPrice.textContent = value + " грн";
     }
 
+    function plus_minusButtonsInit() {
+        const minuses = document.querySelectorAll('.quantity-button.minus');
+        const pluses = document.querySelectorAll('.quantity-button.plus');
+        
+        for (const minus of minuses){
+            minus.onclick = function () {
+                let input = this.closest('.product-quantity-input-container').querySelector('.product-quantity-input');
+                if(parseInt(input.value) > 1){
+                    input.value = parseInt(input.value) - 1;
+                    updatePrice();
+                    let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
+                    let cart = JSON.parse(localStorage.getItem("cart"));
+                    let res = cart.find(element => element.id == id);
+                    res.quantity = parseInt(input.value);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                }
+            };
+        }
+
+        for (const plus of pluses){
+            plus.onclick = function () {
+                let input = this.closest('.product-quantity-input-container').querySelector('.product-quantity-input');
+                if(parseInt(input.value) < 100){
+                    input.value = parseInt(input.value) + 1;
+                    updatePrice();
+                    let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
+                    let cart = JSON.parse(localStorage.getItem("cart"));
+                    let res = cart.find(element => element.id == id);
+                    res.quantity = parseInt(input.value);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                };
+            }
+        }
+    }
     function rememberQuantity() {
+        updatePrice();
         let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
         let quantity = parseInt(this.value);
         let cart = JSON.parse(localStorage.getItem("cart"));
         let res = cart.find(element => element.id == id);
         res.quantity = quantity;
         localStorage.setItem("cart", JSON.stringify(cart));
-        updatePrice();
     }
 
     function checkQuantity(input) {

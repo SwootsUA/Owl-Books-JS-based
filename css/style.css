@@ -69,6 +69,7 @@ input[type="search"], textarea {
 .popup-order-succeed__body {
     display: flex;
     background-color: white;
+    max-width: calc(90% - 40px);
     min-width: calc(50% - 40px);
     justify-content: center;
     align-items: center;
@@ -224,7 +225,13 @@ input[type="search"], textarea {
     flex: 1 1 auto;
 }
 
-.item__href, .about-product {
+.item__href {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+} 
+
+.about-product {
     cursor: pointer;
 }
 
@@ -298,7 +305,7 @@ input[type="search"], textarea {
 
 .make-order-body .make-order-cart {
     height: 100%;
-    max-width: 100%;
+    max-width: calc(100% - 20px);
 }
 
 .make-order-cart {
@@ -380,8 +387,10 @@ input[type="search"], textarea {
 }
 
  .product-quantity-input-container {
+    display: flex;
+    flex-direction: row;
     align-self: center;
-    width: 50%;
+    width: 100%;
 }
 
 .product-quantity-input, .item_page-product-quantity-input {
@@ -390,11 +399,27 @@ input[type="search"], textarea {
     transition: 0.3s;
     border: 2px solid #3E2B26 !important; 
     border-radius: 2px;
+    align-self: center;
+    justify-self: center;
     outline: none;
 } 
 
 .product-quantity-input:focus, .item_page-product-quantity-input:focus {
     border: 2px solid #D7BD79 !important;
+}
+
+.quantity-button {
+    cursor: pointer;
+    max-width: 25px;
+    height: auto;
+}
+
+.quantity-button.minus {
+    padding-right: 5px;
+}
+
+.quantity-button.plus {
+    padding-left: 5px;
 }
 
 .order-input {
@@ -617,6 +642,7 @@ ul, li {
 .item_image {
     object-fit: contain;
     object-position: center;
+    align-self: center;
     height: 330px;
 }
 
@@ -712,7 +738,7 @@ ul, li {
     opacity: 0;
 }
 
-@media (max-width: 1042px) {
+@media (max-width: 1145px) {
     .np-margin {
         margin-bottom: 40px;
     }
@@ -738,6 +764,7 @@ ul, li {
     }
 
     .make-order-cart {
+        border-right: 0px none transparent;
         width: 100%;
     }
 
@@ -748,6 +775,7 @@ ul, li {
     }
 
     .order-container {
+        height: 100%;
         flex-direction: column;
     }
 
@@ -852,7 +880,7 @@ ul, li {
     }
 }
 
-@media (max-width: 488px) {
+@media (max-width: 620px) {
     .new__row {
         justify-content: center;
     }
