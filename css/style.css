@@ -709,6 +709,23 @@ ul, li {
 
 }
 
+.cart-notification-container {
+    display: flex;
+    background-color: #4CAF50;
+    color: white;
+    position: fixed;
+    top: 160px;
+    right: -100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.cart-notification-container.active {
+    right: 0;
+}
+
 .footer__copyright {
     font-size: 24pt;
     color: #D7BD79;
@@ -757,6 +774,10 @@ ul, li {
 }
 
 @media (max-width: 800px) {
+    .cart-notification-container {
+        top: 110px;
+    }
+
     .np-margin {
         margin-bottom: 20px;
     }

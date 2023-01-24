@@ -113,10 +113,18 @@ function addButtonInit() {
 	for (const buyButton of buyButtons)
 		buyButton.onclick = addToCart;
 
+	function toggleActive(block) {
+		
+	}
+
 	function addToCart() {
 		let cart = JSON.parse(localStorage.getItem("cart"));
 		let itemId;
 		let itemQuantity;
+
+		let notification = document.querySelector('.cart-notification-container');
+		notification.classList.toggle('active');
+		setTimeout(function () {notification.classList.toggle('active')}, 2000);
 
 		if (this.id == 'item_page') {
 			itemId = parseInt(this.closest('.item_page__info_container').querySelector('.item_page__name').id);

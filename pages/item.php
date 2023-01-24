@@ -15,6 +15,10 @@
 			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/cart-popup.html");?>
 		</div>
 
+		<div class="cart-notification">
+			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/cart-notification.html");?>
+		</div>
+
 		<header class="header">
 			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/header.html");?>
 		</header>

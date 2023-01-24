@@ -6,28 +6,37 @@ export function inputCheck() {
     let orderInputs = document.querySelectorAll('.order-input');
     
     orderButton.onclick = function () {
-        let containsError = false;
+        let dontContainsError = true;
 
         for (const input of orderInputs) {
             removeError(input);
             
             if (parseInt(input.value.length) === 0 && !input.classList.contains('not_req')) {
                 addError(input);
-                containsError = true;
+                dontContainsError = false;
+            }
+
+            if(input.classList.contains('phone') && parseInt(input.value.length) > 15) {
+                addError(input);
+                dontContainsError = false;
             }
 
             if (input.classList.contains('oblast') && parseInt(input.value) === 0) {
                 addError(input);
-                containsError = true;
+                dontContainsError = false;
             }
 
             if (input.classList.contains('email') && emailTest(input)) {
                 addError(input);
-                containsError = true;
+                dontContainsError = false;
             }
         } 
 
-        if (!containsError) {
+        let cartHasItem = false;
+        if (localStorage.getItem('cart').length > 2)
+            cartHasItem = true;
+
+        if (dontContainsError && cartHasItem) {
             let storedData;
             let xmlhttp = new XMLHttpRequest();
             let cart = JSON.stringify(JSON.parse(localStorage.getItem("cart"))).replace(/["]/g, '');
