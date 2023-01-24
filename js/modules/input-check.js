@@ -43,7 +43,11 @@ export function inputCheck() {
 
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    if(this.responseText.includes('Error')) { return; }
+                    if(this.responseText.includes('Error')) { 
+                        activateErrorPopUp();
+                        return; 
+                    }
+                    cartModule.clearCart();
                     activatePopUp();
                 }
             };
@@ -61,8 +65,6 @@ export function inputCheck() {
 
             xmlhttp.open("GET", "../include/db/db-add-order.php?" + storedData, false);
             xmlhttp.send();
-
-            cartModule.clearCart();
         }
     };
 
@@ -76,6 +78,14 @@ export function inputCheck() {
 
     function removeError(input) {
         input.classList.remove('error');
+    }
+
+    function activateErrorPopUp() {
+        let popUp = document.querySelector('.popup-order-error');
+        popUp.classList.add('active');
+        popUp.onclick = function () {
+            popUp.classList.remove('active');
+        };
     }
 
     function activatePopUp() {

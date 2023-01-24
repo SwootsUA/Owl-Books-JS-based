@@ -9,13 +9,6 @@
     $password = "Swoots_2023";
     $dbname = "swoots";
     
-    //error handler function
-    function customError($errno, $errstr) {
-      echo "<b>Error:</b> [$errno] $errstr";
-    }
-    //set error handler
-    set_error_handler("customError");
-
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if (!$conn) {
       die("<b>Error:</b> " . mysqli_connect_error());

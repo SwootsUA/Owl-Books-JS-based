@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<?php 
+    function customError($errno, $errstr) { echo "<b>Error:</b> [$errno] $errstr"; }
+	set_error_handler("customError");
+?>
+
 <html lang="en">
 	<head>
 		<title>Оформлення замовлення</title>
@@ -20,6 +26,15 @@
                     Замовлення успішне!<p>Деталі доставки будуть надіслані вам на пошту та у телеграм
                 </div>
                 <button class="order-summary-button">Закрити діалогове вікно</button>
+            </div>
+        </div>
+
+        <div class="popup-order-error">
+            <div class="popup-order-error__body">
+                <div class="popup-order-error__text">
+                    Сталася помилка!<p>Перевірте уведенні вами данні та спробуйте знову!
+                </div>
+                <button class="order-summary-button red">Закрити діалогове вікно</button>
             </div>
         </div>
 
