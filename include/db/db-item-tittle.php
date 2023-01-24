@@ -1,15 +1,13 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "admin";
-    $dbname = "owl-books";
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "admin";
+    // $dbname = "owl-books";
     
-    /* zzz.com.ua
     $servername = "localhost";
     $username = "owlbooks";
     $password = "Swoots_2023";
     $dbname = "swoots";
-    */
     
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if (!$conn) {

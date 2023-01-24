@@ -59,9 +59,9 @@
                     </div>
                     <div class="contacts-input">
                         <input type="text" class="order-input name" placeholder="Ім'я" required>
-                        <input type="text" class="order-input surname" placeholder="Призвище" required>
+                        <input type="text" class="order-input surname" placeholder="Прізвище" required>
                         <input type="number" class="order-input phone" placeholder="Телефон" required>
-                        <input type="text" class="order-input email" placeholder="Електронна пошта" required>
+                        <input type="email" class="order-input email" placeholder="Електронна пошта" required>
                         <select class="order-input oblast" required>
                             <option value="" disabled selected> --- Виберіть область --- </option>
                             <option value="1">Івано-Франківська область</option>
