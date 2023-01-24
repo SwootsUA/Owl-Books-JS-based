@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import * as cartModule from "./cart.js";
 
 export function inputCheck() {
@@ -10,12 +11,12 @@ export function inputCheck() {
         for (const input of orderInputs) {
             removeError(input);
             
-            if (input.value.length == 0 && !input.classList.contains('not_req')) {
+            if (parseInt(input.value.length) === 0 && !input.classList.contains('not_req')) {
                 addError(input);
                 containsError = true;
             }
 
-            if (input.classList.contains('oblast') && input.value == 0) {
+            if (input.classList.contains('oblast') && parseInt(input.value) === 0) {
                 addError(input);
                 containsError = true;
             }
@@ -35,7 +36,7 @@ export function inputCheck() {
                 if (this.readyState == 4 && this.status == 200) {
                     activatePopUp();
                 }
-            }
+            };
 
             storedData = 
             "name=\"" + document.querySelector('.name').value +
@@ -53,7 +54,7 @@ export function inputCheck() {
 
             cartModule.clearCart();
         }
-    }
+    };
 
     function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
@@ -68,10 +69,10 @@ export function inputCheck() {
     }
 
     function activatePopUp() {
-        let popUp = document.querySelector('.popup-order-succeed')
+        let popUp = document.querySelector('.popup-order-succeed');
         popUp.classList.add('active');
         popUp.onclick = function () {
             popUp.classList.remove('active');
-        }
+        };
     }
 }

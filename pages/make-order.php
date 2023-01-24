@@ -63,7 +63,7 @@
                         <input type="number" class="order-input phone" placeholder="Телефон" required>
                         <input type="text" class="order-input email" placeholder="Електронна пошта" required>
                         <select class="order-input oblast" required>
-                            <option value="0" disabled="disabled" selected="selected"> --- Виберіть --- </option>
+                            <option value="" disabled selected> --- Виберіть область --- </option>
                             <option value="1">Івано-Франківська область</option>
                             <option value="2">Вінницька область</option>
                             <option value="3">Волинська область</option>
@@ -91,7 +91,7 @@
                         </select>
                         <input type="text" class="order-input city" placeholder="Місто" required>
                         <input type="text" class="order-input np-margin nova-post" id="nova-post" placeholder="Відділення Нової Пошти" required>
-                        <textarea type="text" class="order-input description not_req" placeholder="Коментар"></textarea>
+                        <textarea class="order-input description not_req" placeholder="Коментар"></textarea>
                     </div>
                 </div>
             </div>

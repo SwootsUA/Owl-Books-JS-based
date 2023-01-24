@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>
-			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-item-tittle.php");?>
-		</title>
+		<title>Owl Books</title>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
 	</head>
-    <body>
+
+	<body>
 		<nav class="burger-menu_items">
 			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/burger-menu.html");?>
 		</nav>
@@ -24,12 +23,14 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"]."/include/controls.html");?>
 			</div>
 
-			<div class="item item_page">
-                <?php
-                    $itemId = $_GET["item-id"];  
-                    include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-item.php"); 
-                ?>
-            </div>
+			<div class="new">
+				<h2 class="new__tittle">
+					Результат пошуку: <?php echo $_GET['search']?>
+				</h2>
+				<div class="new__row">
+					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-search.php");?>
+				</div>
+			</div>
 		</div>
 
 		<footer class="footer">

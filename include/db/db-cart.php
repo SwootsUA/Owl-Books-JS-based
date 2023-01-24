@@ -10,7 +10,6 @@
     }
 
     $cartIds = $_REQUEST["ids"];
-    $cartQuantitys = explode(',', $_REQUEST["quantitys"]);
 
     $sql = "SELECT items._id, image_name, name, price, made_by FROM items WHERE items._id IN (" . $cartIds . ")";
     $result = mysqli_query($conn, $sql);
@@ -23,7 +22,7 @@
         <li class=\"cart-product\">
 	        <div class=\"about-product\">
 		        <div class=\"product-image-container\">
-			        <img class=\"product-image\" src=\"../img/items/".$f['image_name']."\">
+			        <img class=\"product-image\" src=\"../img/items/".$f['image_name']."\" alt=\"".$f['name']."\">
 		        </div>
 		        <div class=\"product-details\">
                     <div id=\"".$f['_id']."\" class=\"product-name\">".$f['name']."</div>

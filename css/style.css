@@ -235,7 +235,7 @@ input[type="search"], textarea {
     cursor: pointer;
 }
 
-.item#item_page {
+.item.item_page {
     width: calc(100% - 50px);
     align-items: start;
     flex-direction: row;
@@ -268,6 +268,9 @@ input[type="search"], textarea {
 }
 
 .item_page__image_container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
     min-width: 200px;
     width: 300px;
 }
@@ -855,6 +858,24 @@ ul, li {
         text-decoration: none; 
     }
 }
+
+@media (max-width: 666px) {
+    .item.item_page {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 464px) {
+    .item_page__info_container {
+        flex-direction: column;
+    }
+
+    .item_page__buy {
+        align-self: center;
+        padding-top: 10px;
+    }
+}
+
 
 
 @media (max-width: 550px) {

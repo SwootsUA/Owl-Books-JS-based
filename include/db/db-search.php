@@ -9,25 +9,10 @@
       die("Connection failed: " . mysqli_connect_error());
     }
 
-    $searchType = "1";
+    $search = $_GET['search'];
     $currentFileName = basename($_SERVER['PHP_SELF']);
-    if ($currentFileName == 'books.php') {
-      $searchType = "types.type = \"book\"";
-    }
-    if ($currentFileName == 'mangas.php') {
-      $searchType = "types.type = \"manga\"";
-    }
-    if ($currentFileName == 'magazines.php') {
-      $searchType = "types.type = \"magazine\"";
-    }
-    if ($currentFileName == 'accessorys.php') {
-      $searchType = "types.type = \"accessory\"";
-    }
-    if ($currentFileName == 'index.php') {
-      $searchType = "1";
-    }
 
-    $sql = "SELECT items._id, image_name, name, price, type_id, type FROM items JOIN types ON type_id = types._id WHERE " . $searchType;
+    $sql = "SELECT items._id, image_name, name, price, type_id, type FROM items JOIN types ON type_id = types._id WHERE name like \"%" . $search . "%\"";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 

@@ -20,7 +20,7 @@
     echo 
     "
     <div class=\"item_page__image_container\">
-        <img class=\"item_page__image\" src=\"../img/items/".$f['image_name']."\">
+        <img class=\"item_page__image\" src=\"../img/items/".$f['image_name']."\" alt=\"".$f['name']."\">
     </div>
     <div class=\"item_page__info_container\">
         <div class=\"item_page__info\">
