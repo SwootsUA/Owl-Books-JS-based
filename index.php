@@ -5,10 +5,14 @@
 	set_error_handler("customError");
 ?>
 
-<html lang="en">
+<html lang="ua">
 	<head>
 		<title>Owl Books</title>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
+		<meta name="title" content="Owl books">
+		<meta name="description" content="Книжний онлайн-магазин з великим вибором книг, журналів, манги та аксесуарів для книголюбів!">
+		<meta name="keywords" content="Книжний магазин, книги, манга, журнали, аксесуари до книг, Owl Books">
+		<meta name="author" content="Захарченко Костянтин">
 	</head>
 
 	<body>

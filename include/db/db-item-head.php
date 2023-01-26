@@ -16,11 +16,21 @@
 
     $currentFileName = basename($_SERVER['PHP_SELF']);
 
-    $itemId = $_GET["item-id"];
-    $sql = "SELECT _id, name FROM items WHERE _id = $itemId";
-    $result = mysqli_query($conn, $sql);
-    mysqli_close($conn);
+    if($_GET["item-id"]) {
+      $itemId = $_GET["item-id"];
+      $sql = "SELECT _id, name, description FROM items WHERE _id = $itemId";
+      $result = mysqli_query($conn, $sql);
+      mysqli_close($conn);
 
-    $f = mysqli_fetch_array($result);
-    echo $f['name'];
+      if($result) {
+        $f = mysqli_fetch_array($result);
+        echo 
+        "
+        <title>
+          ".$f['name']."
+        </title>
+        <meta name=\"description\" content=\"".$f['description']."\">
+        ";
+      };
+    };
 ?>

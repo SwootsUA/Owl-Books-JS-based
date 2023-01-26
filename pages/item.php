@@ -5,11 +5,9 @@
 	set_error_handler("customError");
 ?>
 
-<html lang="en">
+<html lang="ua">
 	<head>
-		<title>
-			<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-item-tittle.php");?>
-		</title>
+		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-item-head.php");?>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
 	</head>
     <body>

@@ -5,10 +5,11 @@
 	set_error_handler("customError");
 ?>
 
-<html lang="en">
+<html lang="ua">
 	<head>
 		<title>Аксесуари</title>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
+		<meta name="description" content="Аксесуари для книг і не тільки.">
 	</head>
 
 	<body>

@@ -5,10 +5,11 @@
 	set_error_handler("customError");
 ?>
 
-<html lang="en">
+<html lang="ua">
 	<head>
 		<title>Owl Books</title>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
+		<meta name="robots", content="noindex, follow">
 	</head>
 
 	<body>
