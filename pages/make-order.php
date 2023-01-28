@@ -10,6 +10,8 @@
 		<title>Оформлення замовлення</title>
         <?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
         <meta name="robots", content="noindex, nofollow">
+        <meta name="keywords" content="Книжний магазин, книги, манга, журнали, аксесуари до книг, Owl Books">
+		<meta name="author" content="Захарченко Костянтин">
 	</head>
 
 	<body>

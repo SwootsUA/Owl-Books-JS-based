@@ -28,7 +28,6 @@
     "   INSERT INTO `orders` (`_id`, `name`, `surname`, `phone`, `email`, `region_id`, `city`, `novaPost`, `description`, `productIds`) 
         VALUES (NULL, $name, $surname, $phone, $email, $region_id, $city, $novaPost, $description, $productIds)";
     
-    echo $sql;
     mysqli_query($conn, $sql); 
     mysqli_close($conn);
 ?>

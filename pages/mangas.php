@@ -10,6 +10,8 @@
 		<title>Манга</title>
 		<?php include($_SERVER["DOCUMENT_ROOT"]."/include/head-info.html");?>
 		<meta name="description" content="Японська манга українською мовою.">
+		<meta name="keywords" content="Книжний магазин, книги, манга, журнали, аксесуари до книг, Owl Books">
+		<meta name="author" content="Захарченко Костянтин">
 	</head>
 
 	<body>
