@@ -774,7 +774,7 @@ ul, li {
     }
 }
 
-@media (max-width: 880px) and (min-width: 801) {
+@media (max-width: 880px) and (min-width: 801px) {
     .footer__copyright {
         font-size: 18pt;
     }
