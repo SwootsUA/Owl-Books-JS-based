@@ -5,9 +5,9 @@
     // $dbname = "owl-books";
     
     $servername = "localhost";
-    $username = "owlbooks";
+    $username = "owlbooks2";
     $password = "Swoots_2023";
-    $dbname = "swoots";
+    $dbname = "swoots2";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if (!$conn) {
