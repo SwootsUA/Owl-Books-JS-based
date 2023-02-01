@@ -32,11 +32,22 @@
       $searchType = "1";
     }
 
-    $sql = "SELECT items._id, image_name, name, price, type_id, type FROM items JOIN types ON type_id = types._id WHERE " . $searchType;
+    if($searchType == "1") {
+      $sql = "SELECT items._id, image_name, name, price, type_id, type FROM items JOIN types ON type_id = types._id ORDER BY items._id DESC;";
+    } else {
+      $sql = "SELECT items._id, image_name, name, price, type_id, type FROM items JOIN types ON type_id = types._id WHERE " . $searchType . ";";
+    }
+    
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
-    for($i = 0; $i < mysqli_num_rows($result); $i++) {
+    if($searchType == "1") {
+      $number = 6;
+    } else {
+      $number = mysqli_num_rows($result);
+    }
+
+    for($i = 0; $i < $number; $i++) {
         $f = mysqli_fetch_array($result);
         echo 
         "
