@@ -738,6 +738,7 @@ ul, li {
 
 .footer__copyright {
     font-size: 24pt;
+    min-width: 120px;
     color: #D7BD79;
 }
 
@@ -753,7 +754,7 @@ ul, li {
     display: flex;
     align-items: center;
     padding-inline: 10px;
-    width: 8%;
+    max-width: 40px;
     height: auto;
 }
 
@@ -823,10 +824,6 @@ ul, li {
 
     .footer__about {
         font-size: 16pt;
-    }
-
-    .footer__about__social {
-        display: none;
     }
 
     .header {
