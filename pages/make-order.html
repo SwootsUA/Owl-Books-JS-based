@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<?php 
+<!-- <?php 
     function customError($errno, $errstr) { echo "<b>Error:</b> [$errno] $errstr"; }
 	set_error_handler("customError");
-?>
+?> -->
 
 <html lang="ua">
 	<head>
@@ -17,36 +17,16 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala" rel="st ylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter" rel="stylesheet">
-        <meta name="keywords" content="Книжний магазин, книги, манга, журнали, аксесуари до книг, Owl Books">
+        <meta name="keywords" content="Книжний магазин, книги, Owl Books">
 		<meta name="author" content="Захарченко Костянтин">
 	</head>
 
 	<body>
-        <nav class="burger-menu_items">
-            <div class="burger-menu-item-container">
-                <a href="../index.php" class="burger-menu__content">Головна</a>
-                <a href="../pages/books.php" class="burger-menu__content">Книги</a>
-                <a href="../pages/magazines.php" class="burger-menu__content">Журнали</a>
-                <a href="../pages/mangas.php" class="burger-menu__content">Манга</a>
-                <a href="../pages/accessorys.php" class="burger-menu__content">Аксесуари</a>
-            </div>
-		</nav>
-
 		<header class="header">
-            <div class="burger-menu_button">
-                <img src="../img/menu.png" alt="menu">
-            </div>
-
-            <a href="../pages/books.php" class="header__content">Книги</a>
-            <a href="../pages/magazines.php" class="header__content">Журнали</a>
-
-            <a href="../index.php" class="header__logo">
+            <a href="../index.html" class="header__logo">
                 <img src="../img/logo.png" alt="logo" height="80">
                 <div>Owl Books</div>
             </a>
-
-            <a href="../pages/mangas.php" class="header__content">Манга</a>
-            <a href="../pages/accessorys.php" class="header__content">Аксесуари</a>
 		</header>
 		
         <div class="popup-order-succeed">
@@ -108,16 +88,16 @@
                         <input type="email" class="order-input email" placeholder="Електронна пошта" required>
                         <select class="order-input oblast" required>
                             <option value="" disabled selected> --- Виберіть область --- </option>
-                            <option value="1">Івано-Франківська область</option>
-                            <option value="2">Вінницька область</option>
-                            <option value="3">Волинська область</option>
-                            <option value="4">Дніпропетровська область</option>
-                            <option value="5">Донецька область</option>
-                            <option value="6">Житомирська область</option>
-                            <option value="7">Закарпатська область</option>
-                            <option value="8">Запорізька область</option>
-                            <option value="9">Кіровоградська область</option>
-                            <option value="10">Київська область</option>
+                            <option value="1">Вінницька область</option>
+                            <option value="2">Волинська область</option>
+                            <option value="3">Дніпропетровська область</option>
+                            <option value="4">Донецька область</option>
+                            <option value="5">Житомирська область</option>
+                            <option value="6">Закарпатська область</option>
+                            <option value="7">Запорізька область</option>
+                            <option value="8">Івано-Франківська область</option>
+                            <option value="9">Київська область</option>
+                            <option value="10">Кіровоградська область</option>
                             <option value="11">Луганська область</option>
                             <option value="12">Львівська область</option>
                             <option value="13">Миколаївська область</option>

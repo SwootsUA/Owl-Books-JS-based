@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-<?php 
+<!-- <?php 
     function customError($errno, $errstr) { echo "<b>Error:</b> [$errno] $errstr"; }
 	set_error_handler("customError");
-?>
+?> -->
 
 <html lang="ua">
 	<head>
-		<title>Аксесуари</title>
+		<title>Owl Books</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +17,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala" rel="st ylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Inter" rel="stylesheet">
-		<meta name="description" content="Аксесуари для книг і не тільки.">
-		<meta name="keywords" content="Книжний магазин, книги, манга, журнали, аксесуари до книг, Owl Books">
-		<meta name="author" content="Захарченко Костянтин">
+		<meta name="robots", content="noindex, follow">
 	</head>
 
 	<body>
@@ -74,17 +72,10 @@
 			<div class="burger-menu_button">
 				<img src="../img/menu.png" alt="menu">
 			</div>
-
-			<a href="../pages/books.php" class="header__content">Книги</a>
-			<a href="../pages/magazines.php" class="header__content">Журнали</a>
-
-			<a href="../index.php" class="header__logo">
+			<a href="../index.html" class="header__logo">
 				<img src="../img/logo.png" alt="logo" height="80">
 				<div>Owl Books</div>
 			</a>
-
-			<a href="../pages/mangas.php" class="header__content">Манга</a>
-			<a href="../pages/accessorys.php" class="header__content">Аксесуари</a>
 		</header>
 		
 		<div class="body">
@@ -100,12 +91,13 @@
 				</div>
 			</div>
 
-			<div class="new">
-				<h2 class="new__tittle">
-					Аксесуари
+			<div class="items__container">
+				<h2 class="tittle">
+					Результат пошуку: 
+					<!-- <?php echo $_GET['search']?> -->
 				</h2>
-				<div class="new__row">
-					<?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-page.php");?>
+				<div class="items__row">
+					<!-- <?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-search.php");?> -->
 				</div>
 			</div>
 		</div>

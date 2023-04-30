@@ -625,19 +625,19 @@ ul, li {
     }
 }
 
-.new {
+.items__container {
     display: flex;
     flex-direction: column;
     padding-inline: 20px;
     color: white;
 }
 
-.new__tittle {
+.tittle {
     margin: 0px;
     font-size: xx-large;
 }
 
-.new__row {
+.items__row {
     display: flex;
     flex-wrap: wrap;
     align-items: start;
