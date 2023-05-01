@@ -5,9 +5,9 @@ export function inputCheck() {
     let orderButton = document.getElementById('make-order');
     let orderInputs = document.querySelectorAll('.order-input');
     
-    orderButton.onclick = function () {
+    orderButton.onclick = async function () {
         let dontContainsError = true;
-
+        
         for (const input of orderInputs) {
             removeError(input);
             
@@ -36,35 +36,31 @@ export function inputCheck() {
         if (localStorage.getItem('cart').length > 2)
             cartHasItem = true;
 
-        if (dontContainsError && cartHasItem) {
-            let storedData;
-            let xmlhttp = new XMLHttpRequest();
-            let cart = JSON.stringify(JSON.parse(localStorage.getItem("cart"))).replace(/["]/g, '');
+        if (dontContainsError && cartHasItem) {       
+            let cart = localStorage.getItem("cart");
+          
+            let requestString = `http://localhost:2210/add-order?` +
+            `name=${document.querySelector('.name').value}&` +
+            `surname=${document.querySelector('.surname').value}&` +
+            `phone_number=${document.querySelector('.phone').value}&` +
+            `email=${document.querySelector('.email').value}&` +
+            `region_id=${document.querySelector('.oblast').value}&` +
+            `city=${document.querySelector('.city').value}&` +
+            `NovaPoshta=${document.getElementById('nova-post').value}&` +
+            `description=${document.querySelector('.description').value}&` +
+            `content=${cart}`;
 
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    if(this.responseText.includes('Error')) { 
-                        activateErrorPopUp();
-                        return; 
-                    }
-                    cartModule.clearCart();
+            console.log(requestString);
+            
+            await fetch(requestString)
+                .then(() => {
                     activatePopUp();
-                }
-            };
-
-            storedData = 
-            "name=\"" + document.querySelector('.name').value +
-            "\"&surname=\"" + document.querySelector('.surname').value +
-            "\"&phone=\"" + document.querySelector('.phone').value +
-            "\"&email=\"" + document.querySelector('.email').value +
-            "\"&oblast=" + document.querySelector('.oblast').value +
-            "&city=\"" + document.querySelector('.city').value +
-            "\"&novaPost=\"" + document.getElementById('nova-post').value +
-            "\"&description=\"" + document.querySelector('.description').value +
-            "\"&products=\"" + cart + '"';
-
-            xmlhttp.open("GET", "../include/db/db-add-order.php?" + storedData, false);
-            xmlhttp.send();
+                })
+                .catch(error => {
+                    console.log(error);
+                    activateErrorPopUp();
+                    return; 
+                });   
         }
     };
 
@@ -94,5 +90,6 @@ export function inputCheck() {
         popUp.onclick = function () {
             popUp.classList.remove('active');
         };
+        cartModule.clearCart();
     }
 }

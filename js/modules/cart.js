@@ -37,48 +37,53 @@ function removeButtonInit() {
 	}
 }
 
-function updateCart() {
+async function updateCart() {
 	const cartPopUp = document.querySelector('.cart-popup-content');
 	const cartSummary = document.querySelector('.cart-summary');
 	var cart;
-	var xmlhttp = new XMLHttpRequest();
 
 	if (!localStorage.getItem("cart")) {
 		localStorage.setItem("cart", "[]");
 	}
 
 	cart = JSON.parse(localStorage.getItem("cart"));
+	const response = await fetch(`http://localhost:2210/cart?ids=${cart.map(obj => obj.id).join(',')}`);
+	const products = await response.json();
 
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			if (document.getElementById("ul-body")) {
-				document.getElementById("ul-body").remove();
-			}
-			const node = document.createElement("ul");
-			node.classList.add("cart-products");
-			node.id = "ul-body";
+	if (document.getElementById("ul-body")) {
+		document.getElementById("ul-body").remove();
+	}
 
-			if (cart.length > 0) {
-				node.innerHTML = this.responseText;
-			}
-			cartPopUp.insertBefore(node, cartSummary);
-		}
-	};
+	const node = document.createElement("ul");
+	node.classList.add("cart-products");
+	node.id = "ul-body";
 
-	let ids = cart.map((obj) => {
-		return obj.id;
-	});
+	if (cart.length > 0) {
+		node.innerHTML = products.map(product => `
+		  <li class="cart-product">
+			<div class="about-product">
+			  <div class="product-image-container">
+				<img class="product-image" src="./img/items/${product.image}" alt="${product.name}">
+			  </div>
+			  <div class="product-details">
+				<div id="${product.book_id}" class="product-name">${product.name}</div>
+				<div class="product-price">${product.price} грн</div>
+			  </div>
+			</div>
+			<div class="product-actions">
+			  <div class="product-action-remove">Видалити</div>
+			  <div class="product-quantity-input-container">
+				<img src="./img/minus.png" alt="minus" class="quantity-button minus">
+				<input type="number" min="1" max="100" class="product-quantity-input">
+				<img src="./img/plus.png" alt="plus" class="quantity-button plus">
+			  </div>
+			</div>
+		  </li>
+		`).join('');
+	  }
 
-	let quantitys = cart.map((obj) => {
-		return obj.quantity;
-	});
-
-	ids = (JSON.stringify(ids)).slice(1, -1);
-	quantitys = (JSON.stringify(quantitys)).slice(1, -1);
-
-	xmlhttp.open("GET", "../include/db/db-cart.php?ids=" + ids, false);
-	xmlhttp.send();
-
+	cartPopUp.insertBefore(node, cartSummary);
+	
 	const allCartProduct = document.querySelectorAll('.cart-product');
 	for (const product of allCartProduct) {
 		let second_cart = JSON.parse(localStorage.getItem('cart'));
@@ -96,14 +101,15 @@ function updateCart() {
 	}
 
     function goToItemPage() {
-        var id = this.querySelector('.product-name').id;
-        window.location = ('../pages/item.php?item-id=' + id);
-    }
+		var id = this.querySelector('.product-name').id;
+		window.location = ('./item.html?id=' + id);
+	}
 
 	const abotProducts = document.querySelectorAll('.about-product');
 	for (const abotProduct of abotProducts) {
 		abotProduct.onclick = goToItemPage;
 	}
+
 	addPriceUpdater();
 	removeButtonInit();
 }
@@ -162,8 +168,8 @@ function addPriceUpdater() {
 		itemPagequantity.onchange = function() {
 			if (itemPagequantity.value < 1)
 				itemPagequantity.value = 1;
-			else if (itemPagequantity.value > 100)
-				itemPagequantity.value = 100;
+			else if (itemPagequantity.value > parseInt(document.getElementById('item_quantity').innerText))
+				itemPagequantity.value = parseInt(document.getElementById('item_quantity').innerText);
 		};
 	}
 
@@ -200,7 +206,7 @@ function addPriceUpdater() {
 
         function plusQuantity() {
             let input = this.closest('.product-quantity-input-container').querySelector('.product-quantity-input');
-			if (parseInt(input.value) < 100) {
+			if (parseInt(input.value) < parseInt(document.getElementById('item_quantity').innerText)) {
 				input.value = parseInt(input.value) + 1;
 				updatePrice();
 				let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
@@ -233,7 +239,7 @@ function addPriceUpdater() {
 	function checkQuantity(input) {
 		if (input.value < 1)
 			input.value = 1;
-		else if (input.value > 100)
-			input.value = 100;
+		else if (input.value > parseInt(document.getElementById('item_quantity').innerText))
+			input.value = parseInt(document.getElementById('item_quantity').innerText);
 	}
 }

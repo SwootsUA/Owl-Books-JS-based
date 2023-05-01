@@ -46,7 +46,7 @@
 								</div>
 								<div class="cart-summary-price"></div>
 							</div>
-							<button type="button" onclick="window.location='./pages/make-order.php';" class="cart-summary-button">
+							<button type="button" onclick="window.location='./make-order.html';" class="cart-summary-button">
 								Перейти до оформлення замовлення
 							</button>
 						</div>
@@ -70,8 +70,8 @@
 		
 		<div class="body">
 			<div class="controls">
-				<form class="search" action="./pages/search.php" method="get">
-					<input class="search__input" type="search" name="search" placeholder="Пошук...">
+				<form class="search" action="./search.html" method="get">
+					<input class="search__input" type="search" name="s" placeholder="Пошук...">
 					<img class="search__img" src="./img/search.png" alt="search">
 					<img class="search__cross hidden" src="./img/cross.png" alt="close search">	
 				</form>
@@ -86,7 +86,7 @@
 					Наші Книжки
 				</h2>
 				<div class="items__row">
-					<!-- <?php include($_SERVER["DOCUMENT_ROOT"]."/include/db/db-page.php");?> -->
+					<script src="./js/modules/index.js"></script>
 				</div>
 			</div>
 		</div>
