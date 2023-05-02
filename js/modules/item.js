@@ -59,6 +59,9 @@ function fetchItemData() {
                     Кількість сторінок: ${data.info.page_amount}
                 </div>
                 <div class="item_page__made_by">
+                    Видавництво: ${data.info.pub_name}
+                </div>
+                <div class="item_page__made_by">
                     ISBN: ${data.info.ISBN}
                 </div>
                 
