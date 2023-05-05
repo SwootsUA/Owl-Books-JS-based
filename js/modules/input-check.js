@@ -49,8 +49,6 @@ export function inputCheck() {
             `NovaPoshta=${document.getElementById('nova-post').value}&` +
             `description=${document.querySelector('.description').value}&` +
             `content=${cart}`;
-
-            console.log(requestString);
             
             await fetch(requestString)
                 .then(() => {

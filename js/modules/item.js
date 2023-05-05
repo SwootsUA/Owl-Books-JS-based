@@ -1,16 +1,16 @@
-fetchItemData();
+export async function fetchItemData() {
+    return new Promise(async (resolve) => {
+        const searchParams = new URLSearchParams(window.location.search);
+        const itemId = searchParams.get('id');
 
-function fetchItemData() {
-    const searchParams = new URLSearchParams(window.location.search);
-    const itemId = searchParams.get('id');
+        let response = await fetch(`http://localhost:2210/item?id=${itemId}`);
+        let data = await response.json();
 
-    
-    
-    fetch(`http://localhost:2210/item?id=${itemId}`)
-      .then(response => response.json())
-      .then(data => {
-        const itemContainer = document.querySelector('.item_page');
-        
+        const itemContainer = await document.querySelector('.item_page');
+        document.title = data.info.name;
+
+        var image;
+
         let genres = data.genres.length === 1 ? 'Жанр: ' : 'Жанри: ';
         data.genres.forEach((genre, index) => {
             genres += `${genre.name}${index < data.genres.length - 1 ? ', ' : ''}`;
@@ -39,10 +39,14 @@ function fetchItemData() {
                 <div class="item_page__price">${data.info.price} грн</div>
             </div>
         `;
-    
+
+        response = await fetch(`http://localhost:2210/image?imgName=${data.info.image}`);
+        let blob = await response.blob();
+        image = URL.createObjectURL(blob);
+
         itemContainer.innerHTML = `
         <div class="item_page__image_container">
-            <img class="item_page__image" src="./img/items/${data.info.image}" alt="${data.info.name}">
+            <img class="item_page__image" src="${image}" alt="${data.info.name}">
         </div>
         <div class="item_page__info_container">
             <div class="item_page__info">
@@ -75,11 +79,7 @@ function fetchItemData() {
             ${itemPageBuy}
         </div>
         `;
-      })
-      .catch(error => {
-        console.log(error);
-        const itemContainer = document.querySelector('.item_page');
-        itemContainer.innerHTML = 'Error retrieving data from database';
-      });
-  }
-  
+
+        resolve();
+    })
+}

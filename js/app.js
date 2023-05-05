@@ -1,6 +1,12 @@
 /*jshint esversion: 6 */
 import * as inputCheck from "./modules/input-check.js";
-import * as cart from "./modules/cart.js";
+import { addToCart } from "./modules/cart.js";
+import * as indexItems from "./modules/index.js";
+import * as searchItems from "./modules/search.js"
+import { buildPage } from "./modules/repeating-elements.js";
+import { fetchItemData } from "./modules/item.js";
+
+await buildPage();
 
 const cartImg = document.querySelector('.cart__img');
 const cartText = document.querySelector('.cart__text');
@@ -9,33 +15,43 @@ const searchIcon = document.querySelector('.search__img');
 const searchCross = document.querySelector('.search__cross');
 const cartBackground = document.querySelector('.background');
 const searchInput = document.querySelector('.search__input');
-const menuIcon = document.querySelector('.burger-menu_button');
 const cartCross = document.querySelector('.cart-header-cross');
-const navigation = document.querySelector('.burger-menu_items');
 const cartContainer = document.querySelector('.cart-popup-container');
-const menuItems = document.querySelector('.burger-menu-item-container');
 
-if (document.querySelector('.cart-summary-price')) {
-	cart.constructor();
+
+if (document.getElementById('index_row')){
+	await indexItems.fetchSearchData()
+
+	const buyButtons = document.querySelectorAll('.button__buy');
+	console.log(buyButtons);
+	for (const buyButton of buyButtons){
+		buyButton.onclick = addToCart;
+	}
 }
+
+if (document.getElementById('search_row')){
+	await searchItems.fetchSearchData();
+
+	const buyButtons = document.querySelectorAll('.button__buy');
+	console.log(buyButtons);
+	for (const buyButton of buyButtons) {
+	  buyButton.onclick = addToCart;
+	}
+}
+
+if (document.querySelector('.item_page')) {
+	await fetchItemData()
+
+	const buyButtons = document.querySelectorAll('.button__buy');
+	console.log(buyButtons);
+	for (const buyButton of buyButtons){
+		buyButton.onclick = addToCart;
+	}
+}
+
 
 if (document.getElementById('make-order')) {
 	inputCheck.inputCheck();
-}
-
-
-if (document.querySelector('.burger-menu_items')) {
-	menuIcon.onclick = function() {
-		menuIcon.classList.toggle('active');
-		menuItems.classList.toggle('active');
-		navigation.classList.toggle('active');
-	};
-
-	navigation.onclick = function() {
-		menuIcon.classList.remove('active');
-		menuItems.classList.remove('active');
-		navigation.classList.remove('active');
-	};
 }
 
 if (document.querySelector('.cart__img')) {
