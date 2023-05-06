@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import * as inputCheck from "./modules/input-check.js";
-import { addToCart } from "./modules/cart.js";
+import { addToCart, updateCart } from "./modules/cart.js";
 import * as indexItems from "./modules/index.js";
 import * as searchItems from "./modules/search.js"
 import { buildPage } from "./modules/repeating-elements.js";
@@ -18,40 +18,27 @@ const searchInput = document.querySelector('.search__input');
 const cartCross = document.querySelector('.cart-header-cross');
 const cartContainer = document.querySelector('.cart-popup-container');
 
-
 if (document.getElementById('index_row')){
 	await indexItems.fetchSearchData()
-
-	const buyButtons = document.querySelectorAll('.button__buy');
-	console.log(buyButtons);
-	for (const buyButton of buyButtons){
-		buyButton.onclick = addToCart;
-	}
 }
 
 if (document.getElementById('search_row')){
 	await searchItems.fetchSearchData();
-
-	const buyButtons = document.querySelectorAll('.button__buy');
-	console.log(buyButtons);
-	for (const buyButton of buyButtons) {
-	  buyButton.onclick = addToCart;
-	}
 }
 
 if (document.querySelector('.item_page')) {
 	await fetchItemData()
-
-	const buyButtons = document.querySelectorAll('.button__buy');
-	console.log(buyButtons);
-	for (const buyButton of buyButtons){
-		buyButton.onclick = addToCart;
-	}
+	await updateCart();
 }
-
 
 if (document.getElementById('make-order')) {
 	inputCheck.inputCheck();
+	await updateCart();
+} else {
+	const buyButtons = document.querySelectorAll('.button__buy');
+	for (const buyButton of buyButtons){
+		buyButton.onclick = addToCart;
+	}
 }
 
 if (document.querySelector('.cart__img')) {

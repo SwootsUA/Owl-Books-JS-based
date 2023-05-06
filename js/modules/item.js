@@ -27,13 +27,13 @@ export async function fetchItemData() {
 
         const itemPageBuy = data.info.quantity > 0 ? 
         `
-            <div class="item_page__buy">
+            <div id=${data.info.book_id} class="item_page__buy product-id">
                 <button class="button__buy" id="item_page">Купити</button>
                 <input type="number" min="1" max="100" value="1" class="item_page-product-quantity-input">
                 <div class="item_page__price">${data.info.price} грн</div>
             </div>
         ` : `
-            <div class="item_page__buy">
+            <div id=${data.info.book_id} class="item_page__buy product-id">
                 <button class="button__buy display_none" id="item_page">Купити</button>
                 <input type="number" min="1" max="100" value="1" class="item_page-product-quantity-input display_none">
                 <div class="item_page__price">${data.info.price} грн</div>

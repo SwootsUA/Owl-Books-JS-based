@@ -5,7 +5,7 @@ export async function clearCart() {
 }
 
 function removeFromCart() {
-	var itemId = this.closest('.cart-product').querySelector('.product-name').id;
+	var itemId = this.closest('.cart-product').querySelector('.product-id').id;
 	let cart;
 
 	cart = JSON.parse(localStorage.getItem("cart"));
@@ -16,30 +16,16 @@ function removeFromCart() {
 	updateCart();
 }
 
-function plusQuantity() {
+async function plusQuantity() {
 	let input = this.closest('.product-quantity-input-container').querySelector('.product-quantity-input');
-	if (parseInt(input.value) < parseInt(document.getElementById('item_quantity').innerText)) {
-		input.value = parseInt(input.value) + 1;
-		updatePrice();
-		let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
-		let cart = JSON.parse(localStorage.getItem("cart"));
-		let res = cart.find(element => element.id == id);
-		res.quantity = parseInt(input.value);
-		localStorage.setItem("cart", JSON.stringify(cart));
-	}
+	input.value = parseInt(input.value) + 1;
+	rememberQuantity(input);
 }
 
 function minusQuantity() {
 	let input = this.closest('.product-quantity-input-container').querySelector('.product-quantity-input');
-	if (parseInt(input.value) > 1) {
-		input.value = parseInt(input.value) - 1;
-		updatePrice();
-		let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
-		let cart = JSON.parse(localStorage.getItem("cart"));
-		let res = cart.find(element => element.id == id);
-		res.quantity = parseInt(input.value);
-		localStorage.setItem("cart", JSON.stringify(cart));
-	}
+	input.value = parseInt(input.value) - 1;
+	rememberQuantity(input);
 }
 
 export async function updateCart() {
@@ -75,21 +61,22 @@ export async function updateCart() {
 		result += `
 		<li class="cart-product">
 			<div class="about-product">
-			<div class="product-image-container">
-				<img class="product-image" src="${image}" alt="${products[i].name}">
-			</div>
-			<div class="product-details">
-				<div id="${products[i].book_id}" class="product-name">${products[i].name}</div>
-				<div class="product-price">${products[i].price} грн</div>
-			</div>
+				<div class="product-image-container">
+					<img class="product-image" src="${image}" alt="${products[i].name}">
+				</div>
+				<div class="product-details">
+					<div id="${products[i].book_id}" class="product-name">${products[i].name}</div>
+					<div class=\"product-author\">${products[i].author_name}</div>
+					<div class="product-price">${products[i].price} грн</div>
+				</div>
 			</div>
 			<div class="product-actions">
-			<div class="product-action-remove">Видалити</div>
-			<div class="product-quantity-input-container">
-				<img src="./img/minus.png" alt="minus" class="quantity-button minus">
-				<input type="number" min="1" max="100" class="product-quantity-input">
-				<img src="./img/plus.png" alt="plus" class="quantity-button plus">
-			</div>
+				<div class="product-action-remove">Видалити</div>
+				<div id="${products[i].book_id}" class="product-quantity-input-container product-id">
+					<img src="./img/minus.png" alt="minus" class="quantity-button minus">
+					<input type="number" min="1" max="100" class="product-quantity-input">
+					<img src="./img/plus.png" alt="plus" class="quantity-button plus">
+				</div>
 			</div>
 		</li>
 		`
@@ -98,11 +85,22 @@ export async function updateCart() {
 	node.innerHTML = result;
 
 	cartPopUp.insertBefore(node, cartSummary);
-	
+
+	const itemPagequantity = document.querySelector('.item_page-product-quantity-input');
+
+	if (itemPagequantity) {
+		itemPagequantity.addEventListener('change', (event) => {
+			rememberQuantity(event.target);
+		});
+	}
+
+
 	const produtsQuantitys = document.querySelectorAll('.product-quantity-input');
 
 	for (const input of produtsQuantitys) {
-		input.addEventListener('change', rememberQuantity);
+		input.addEventListener('change', (event) => {
+			rememberQuantity(event.target);
+		});
 	}
 
 	const minuses = document.querySelectorAll('.quantity-button.minus');
@@ -124,7 +122,7 @@ export async function updateCart() {
 	const allCartProduct = document.querySelectorAll('.cart-product');
 	for (const product of allCartProduct) {
 		let second_cart = JSON.parse(localStorage.getItem('cart'));
-		let itemId = parseInt(product.querySelector('.product-name').id);
+		let itemId = parseInt(product.querySelector('.product-id').id);
 		let itemQuantity = second_cart.find(element => element.id == itemId);
 		product.querySelector('.product-quantity-input').setAttribute('value', itemQuantity.quantity);
 	}
@@ -140,7 +138,7 @@ export async function updateCart() {
 	addPriceUpdater();
 }
 
-export function addToCart() {
+export async function addToCart() {
 	let cart = JSON.parse(localStorage.getItem("cart"));
 	let itemId;
 	let itemQuantity;
@@ -170,11 +168,33 @@ export function addToCart() {
 			cart.push(item);
 		} else {
 			res.quantity += itemQuantity;
+
+			let maxQuantity;
+			await fetch(`http://localhost:2210/item-quantity?id=${itemId}`)
+			.then(response => response.json())
+			.then(data => {
+				maxQuantity = data.quantity;
+			});
+
+			if(res.quantity > maxQuantity) {
+				res.quantity = maxQuantity;
+			}
 		}
 	}
+
+	
+
 	localStorage.setItem("cart", JSON.stringify(cart));
 
 	updateCart();
+}
+
+function activateLowQuantityPopUp() {
+	let popUp = document.querySelector('.popup-low-quantity');
+	popUp.classList.add('active');
+	popUp.onclick = function () {
+		popUp.classList.remove('active');
+	};
 }
 
 function updatePrice() {
@@ -189,34 +209,57 @@ function updatePrice() {
 	summaryPrice.textContent = value + " грн";
 }
 
-function rememberQuantity() {
-	updatePrice();
-	let id = parseInt(this.closest('.cart-product').querySelector('.product-name').id);
-	let quantity = parseInt(this.value);
-	let cart = JSON.parse(localStorage.getItem("cart"));
-	let res = cart.find(element => element.id == id);
-	res.quantity = quantity;
-	localStorage.setItem("cart", JSON.stringify(cart));
+function rememberQuantity(input) {
+	checkQuantity(input).then(() => {
+		updatePrice();
+		let id = parseInt(input.closest('.product-id').id);
+		let quantity = parseInt(input.value);
+		let cart = JSON.parse(localStorage.getItem("cart"));
+		let res = cart.find(element => element.id == id);
+		res.quantity = quantity;
+		localStorage.setItem("cart", JSON.stringify(cart));
+	});
 }
 
-function checkQuantity(input) {
-	try {
-		if (input.value < 1) {
+async function checkQuantity(input) {
+	let itemPage = input.closest('.item_page__name');
+	let itemCart = input.closest('.product-id');
+	
+	if(itemPage) {
+		await fetch(`http://localhost:2210/item-quantity?id=${itemPage.id}`)
+		.then(response => response.json())
+		.then(data => {
+		  maxQuantity = data.quantity;
+		});
+
+		if(input.value < 1 && maxQuantity > 0) {
 			input.value = 1;
-		} else if (input.value > parseInt(document.getElementById('item_quantity').innerText)){
-			input.value = parseInt(document.getElementById('item_quantity').innerText);
-			console.log('Забагато');
+		} else if (input.value > maxQuantity && maxQuantity > 0) {
+			input.value = maxQuantity;
+			activateLowQuantityPopUp();
 		}
-	} catch (error) {
-		console.log('Error')
+	}
+
+	if(itemCart) {
+		let maxQuantity;
+
+		await fetch(`http://localhost:2210/item-quantity?id=${itemCart.id}`)
+		.then(response => response.json())
+		.then(data => { 
+		  maxQuantity = data.quantity;
+		});
+
+		if(input.value < 1 && maxQuantity > 0) {
+			input.value = 1;
+		} else if (input.value > maxQuantity && maxQuantity > 0) {
+			input.value = maxQuantity;
+			activateLowQuantityPopUp();
+		}
 	}
 }
 
 function addPriceUpdater() {
 	updatePrice();
 
-	var itemPagequantity = document.querySelector('.item_page-product-quantity-input');
-	if (itemPagequantity) {
-		itemPagequantity.onchange = checkQuantity(itemPagequantity);
-	}	
+		
 }
