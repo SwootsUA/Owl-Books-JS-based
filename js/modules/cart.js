@@ -7,12 +7,9 @@ export async function clearCart() {
 function removeFromCart() {
 	var itemId = this.closest('.cart-product').querySelector('.product-id').id;
 	let cart;
-
 	cart = JSON.parse(localStorage.getItem("cart"));
 	cart = cart.filter(item => item.id != itemId);
-
 	localStorage.setItem("cart", JSON.stringify(cart));
-
 	updateCart();
 }
 
@@ -83,9 +80,7 @@ export async function updateCart() {
 	}
 
 	node.innerHTML = result;
-
 	cartPopUp.insertBefore(node, cartSummary);
-
 	const itemPagequantity = document.querySelector('.item_page-product-quantity-input');
 
 	if (itemPagequantity) {
@@ -93,7 +88,6 @@ export async function updateCart() {
 			rememberQuantity(event.target);
 		});
 	}
-
 
 	const produtsQuantitys = document.querySelectorAll('.product-quantity-input');
 
@@ -135,7 +129,7 @@ export async function updateCart() {
 		cartSummary.classList.add('hidden');
 	}
 
-	addPriceUpdater();
+	updatePrice();
 }
 
 export async function addToCart() {
@@ -182,10 +176,7 @@ export async function addToCart() {
 		}
 	}
 
-	
-
 	localStorage.setItem("cart", JSON.stringify(cart));
-
 	updateCart();
 }
 
@@ -256,10 +247,4 @@ async function checkQuantity(input) {
 			activateLowQuantityPopUp();
 		}
 	}
-}
-
-function addPriceUpdater() {
-	updatePrice();
-
-		
 }
