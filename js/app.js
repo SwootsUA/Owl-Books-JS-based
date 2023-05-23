@@ -1,92 +1,36 @@
-/*jshint esversion: 6 */
-import * as inputCheck from "./modules/input-check.js";
-import { addToCart, updateCart } from "./modules/cart.js";
-import * as indexItems from "./modules/index.js";
-import * as searchItems from "./modules/search.js"
 import { buildPage } from "./modules/repeating-elements.js";
-import { fetchItemData } from "./modules/item.js";
+import { addInputsCheck } from "./modules/input-check.js";
+import { addToCart, updateCart } from "./modules/cart.js";
+import { fetchItemData as getItemFromDB } from "./modules/item.js";
+import { fetchSearchData as getAllItemsFromDB } from "./modules/index.js";
+import { fetchSearchData as getSearchItemsFromDB } from "./modules/search.js"
 
+// Будуємо структуру сторінки та додаємл обробники подій
 await buildPage();
 
-const cartImg = document.querySelector('.cart__img');
-const cartText = document.querySelector('.cart__text');
-const cartPopUp = document.querySelector('.cart-popup');
-const searchIcon = document.querySelector('.search__img');
-const searchCross = document.querySelector('.search__cross');
-const cartBackground = document.querySelector('.background');
-const searchInput = document.querySelector('.search__input');
-const cartCross = document.querySelector('.cart-header-cross');
-const cartContainer = document.querySelector('.cart-popup-container');
-
 if (document.getElementById('index_row')){
-	await indexItems.fetchSearchData()
+	// Отримуємо всі елементи з бази даних для головної сторінки
+	await getAllItemsFromDB();
 }
 
 if (document.getElementById('search_row')){
-	await searchItems.fetchSearchData();
+	// Отримуємо елементи пошуку з бази даних для сторінки пошуку
+	await getSearchItemsFromDB();
 }
 
 if (document.querySelector('.item_page')) {
-	await fetchItemData()
-	await updateCart();
+	// Отримуємо дані елемента з бази даних для сторінки елемента
+	await getItemFromDB();
 }
 
 if (document.getElementById('make-order')) {
-	inputCheck.inputCheck();
+	// Додаємо перевірку введених даних для сторінці оформлення замовлення та оновлюємо вміст кошика для цієї сторінки
+	addInputsCheck();
 	await updateCart();
 } else {
 	const buyButtons = document.querySelectorAll('.button__buy');
+	// Додаємо обробники подій до кнопок купівлі для додавання товарів до кошика
 	for (const buyButton of buyButtons){
-		buyButton.onclick = addToCart;
+		buyButton.addEventListener('click', addToCart);
 	}
-}
-
-if (document.querySelector('.cart__img')) {
-	cartImg.onclick = function() {
-		cartImg.classList.toggle('active');
-		cartText.classList.toggle('active');
-		cartPopUp.classList.toggle('active');
-		cartContainer.classList.toggle('active');
-	};
-
-	cartText.onclick = function() {
-		cartImg.classList.toggle('active');
-		cartText.classList.toggle('active');
-		cartPopUp.classList.toggle('active');
-		cartContainer.classList.toggle('active');
-	};
-
-	cartBackground.onclick = function() {
-		cartImg.classList.toggle('active');
-		cartText.classList.toggle('active');
-		cartPopUp.classList.toggle('active');
-		cartContainer.classList.toggle('active');
-	};
-
-	cartCross.onclick = function() {
-		cartImg.classList.toggle('active');
-		cartText.classList.toggle('active');
-		cartPopUp.classList.toggle('active');
-		cartContainer.classList.toggle('active');
-	};
-}
-
-function revealCart() {
-	cartImg.classList.toggle('hidden');
-}
-
-if (document.querySelector('.search__img')) {
-	searchIcon.onclick = function() {
-		cartImg.classList.toggle('hidden');
-		searchIcon.classList.toggle('hidden');
-		searchCross.classList.toggle('hidden');
-		searchInput.classList.toggle('active');
-	};
-
-	searchCross.onclick = function() {
-		searchIcon.classList.toggle('hidden');
-		searchCross.classList.toggle('hidden');
-		searchInput.classList.toggle('active');
-		setTimeout(revealCart, 350);
-	};
 }

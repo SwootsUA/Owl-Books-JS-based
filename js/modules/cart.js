@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 export async function clearCart() {
 	localStorage.setItem("cart", "[]");
 	await updateCart();

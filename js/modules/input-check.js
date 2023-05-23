@@ -1,7 +1,6 @@
-/*jshint esversion: 6 */
 import * as cartModule from "./cart.js";
 
-export function inputCheck() {
+export function addInputsCheck() {
     let orderButton = document.getElementById('make-order');
     let orderInputs = document.querySelectorAll('.order-input');
     
